@@ -27,17 +27,29 @@ cd quietbytes
 flutter pub get
 ```
 
-# Running the App
-## iOS Simulator (macOS only)
+## Running the App
+### iOS Simulator (macOS only)
 ```
 flutter run -d quietbytes
 ```
 
-## Chrome Browser (macOS & Windows)
+### Chrome Browser (macOS & Windows)
 ```
 flutter run -d chrome
 ```
-## macOS Desktop
+### macOS Desktop
 ```
 flutter run -d macos
+```
+
+## Project Structure
+```
+lib/
+├── src/
+│   ├── widgets/       # Reusable UI components
+│   ├── screens/       # Full page screens
+│   ├── features/      # Feature modules
+│   ├── core/          # Business logic & services
+│   └── shared/        # Utilities & constants
+├── main.dart          # App entry point
 ```
