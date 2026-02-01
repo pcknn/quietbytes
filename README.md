@@ -1,16 +1,43 @@
-# quietbytes
+# QuietBytes - Food Connection App
 
-A new Flutter project.
+QuietBytes connects people with food recommendations using GPS location services. 
+Explore new food experiences along with a new friend.
 
-## Getting Started
+## Features
+- 📍 **Location-based restaurant discovery** using GPS API
+- 🍕 **Personalized food recommendations**
+- 👥 **Social features** to connect with other food enthusiasts
+- ⭐ **Ratings & reviews** for restaurants
+- 🗺️ **Interactive map** view of nearby food spots
 
-This project is a starting point for a Flutter application.
+## Quick Start
 
-A few resources to get you started if this is your first Flutter project:
+### Prerequisites
+- Flutter 3.38.9+
+- iOS Simulator or physical device (for iOS testing)
+- Chrome browser (for web testing)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Installation
+```bash
+# Clone repository
+git clone https://github.com/estherric/quietbytes.git
+cd quietbytes
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Install dependencies
+flutter pub get
+```
+
+# Running the App
+## iOS Simulator (macOS only)
+```
+flutter run -d quietbytes
+```
+
+## Chrome Browser (macOS & Windows)
+```
+flutter run -d chrome
+```
+## macOS Desktop
+```
+flutter run -d macos
+```
