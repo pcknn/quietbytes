@@ -6,6 +6,8 @@ class AppSpacing {
   static const double verticalPaddingIsland =
       15.0; //Padding from top of pill to Apple Dynamic Island
   static const double pillsSpacing = 10.0; //Spacing between the two pills
+  static const double textPaddingFromSides =
+      24.0; //Padding of the text from the sides of the purple pill
 
   //Login Screen Spacing
   //Top pill spacing

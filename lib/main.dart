@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'features/login.dart';
+import 'features/signup.dart';
+import 'features/welcome.dart';
 
 void main() {
   runApp(const MyApp());
