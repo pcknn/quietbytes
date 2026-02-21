@@ -77,104 +77,106 @@ class Login extends StatelessWidget {
                       padding: const EdgeInsets.only(
                         top: 120.0,
                       ), //Where the logo is placed, could be adjusted later
-                      child: Column(
-                        children: [
-                          const Icon(
-                            Icons.add_photo_alternate_outlined,
-                            size: 80,
-                            color: AppColors.gold,
-                          ),
-
-                          // Username textfield
-                          const SizedBox(
-                            height: 140,
-                          ), // Where the textfields are placed based of logo, could be adjusted later
-                          CustomTextfield(
-                            controller: usernameController,
-                            hintText: 'Username',
-                            obscureText: false,
-                          ),
-
-                          // Password textfield
-                          const SizedBox(
-                            height: 20,
-                          ), // Distance between the two textfields, could be adjusted later
-                          CustomTextfield(
-                            controller: passwordController,
-                            hintText: 'Password',
-                            obscureText: true,
-                          ),
-
-                          // Forgot password?
-                          const SizedBox(
-                            height: 10,
-                          ), // Distance between the password textfield and the "Forgot password?" text, could be adjusted later
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 30.0,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            const Icon(
+                              Icons.add_photo_alternate_outlined,
+                              size: 80,
+                              color: AppColors.gold,
                             ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text(
-                                  'Forgot password?',
-                                  style: TextStyle(
-                                    color: AppColors.cream,
-                                    fontFamily: 'Jersey20',
-                                    fontSize: 18,
+                        
+                            // Username textfield
+                            const SizedBox(
+                              height: 140,
+                            ), // Where the textfields are placed based of logo, could be adjusted later
+                            CustomTextfield(
+                              controller: usernameController,
+                              hintText: 'Username',
+                              obscureText: false,
+                            ),
+                        
+                            // Password textfield
+                            const SizedBox(
+                              height: 20,
+                            ), // Distance between the two textfields, could be adjusted later
+                            CustomTextfield(
+                              controller: passwordController,
+                              hintText: 'Password',
+                              obscureText: true,
+                            ),
+                        
+                            // Forgot password?
+                            const SizedBox(
+                              height: 10,
+                            ), // Distance between the password textfield and the "Forgot password?" text, could be adjusted later
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 30.0,
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    'Forgot password?',
+                                    style: TextStyle(
+                                      color: AppColors.cream,
+                                      fontFamily: 'Jersey20',
+                                      fontSize: 18,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-
-                          // Login button
-                          const SizedBox(
-                            height: 50,
-                          ), // Distance between the "Forgot password?" text and the login button, could be adjusted later
-                          LoginButton(onTap: signUserIn),
-
-                          // Not a member? Register now "Text Button"
-                          const SizedBox(
-                            height: 10,
-                          ), // Distance between the logi button and the Divider, could be adjusted later
-                          Divider(
-                            color: AppColors.cream.withValues(alpha: 0.2),
-                            thickness: 1,
-                            indent: 60,
-                            endIndent: 60,
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ), // Distance between the Divider and the "Not a member? Register now" text, could be adjusted later
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 30.0,
+                        
+                            // Login button
+                            const SizedBox(
+                              height: 50,
+                            ), // Distance between the "Forgot password?" text and the login button, could be adjusted later
+                            LoginButton(onTap: signUserIn),
+                        
+                            // Not a member? Register now "Text Button"
+                            const SizedBox(
+                              height: 10,
+                            ), // Distance between the logi button and the Divider, could be adjusted later
+                            Divider(
+                              color: AppColors.cream.withValues(alpha: 0.2),
+                              thickness: 1,
+                              indent: 60,
+                              endIndent: 60,
                             ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Not a member?',
-                                  style: TextStyle(
-                                    color: AppColors.cream,
-                                    fontFamily: 'Jersey20',
-                                    fontSize: 18,
+                            const SizedBox(
+                              height: 5,
+                            ), // Distance between the Divider and the "Not a member? Register now" text, could be adjusted later
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 30.0,
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Not a member?',
+                                    style: TextStyle(
+                                      color: AppColors.cream,
+                                      fontFamily: 'Jersey20',
+                                      fontSize: 18,
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(width: 4),
-                                Text(
-                                  'Register now',
-                                  style: TextStyle(
-                                    color: AppColors.gold,
-                                    fontFamily: 'Jersey20',
-                                    fontSize: 18,
+                                  const SizedBox(width: 4),
+                                  Text(
+                                    'Register now',
+                                    style: TextStyle(
+                                      color: AppColors.gold,
+                                      fontFamily: 'Jersey20',
+                                      fontSize: 18,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ],
