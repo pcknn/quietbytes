@@ -10,7 +10,9 @@ class Login extends StatelessWidget {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
-  void signUserIn() {}
+  void signUserIn(BuildContext context) {
+    Navigator.pop(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -133,7 +135,7 @@ class Login extends StatelessWidget {
                             const SizedBox(
                               height: 50,
                             ), // Distance between the "Forgot password?" text and the login button, could be adjusted later
-                            LoginButton(onTap: signUserIn),
+                            LoginButton(onTap: () => signUserIn(context)), // Temporary taking the user back to the welcome page, will be changed later to actually sign the user in and take them to the home page
                         
                             // Not a member? Register now "Text Button"
                             const SizedBox(
@@ -164,12 +166,36 @@ class Login extends StatelessWidget {
                                     ),
                                   ),
                                   const SizedBox(width: 4),
-                                  Text(
-                                    'Register now',
-                                    style: TextStyle(
-                                      color: AppColors.gold,
-                                      fontFamily: 'Jersey20',
-                                      fontSize: 18,
+                                  
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, '/signup');
+                                    },
+                                    style: ButtonStyle(
+                                      padding: WidgetStateProperty.all(EdgeInsets.zero),
+                                      minimumSize: WidgetStateProperty.all(Size.zero),
+                                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                      overlayColor: WidgetStateProperty.resolveWith((states) {
+                                        if (states.contains(
+                                              WidgetState.pressed)) {
+                                          return AppColors.purple.withValues(alpha: 0.4);
+                                        }
+                                        return null;
+                                      }),
+                                      foregroundColor: WidgetStateProperty.resolveWith((states) {
+                                        if (states.contains(
+                                              WidgetState.pressed)) {
+                                          return AppColors.cream;
+                                        }
+                                        return AppColors.gold;
+                                      }),
+                                    ),
+                                    child: Text(
+                                      'Register now',
+                                      style: TextStyle(
+                                        fontFamily: 'Jersey20',
+                                        fontSize: 18,
+                                      ),
                                     ),
                                   ),
                                 ],

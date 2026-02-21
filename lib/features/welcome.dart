@@ -6,7 +6,9 @@ import '../componets/welcome_button.dart';
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
 
-  void nextPage() {}
+  void nextPage(BuildContext context) {
+    Navigator.pushNamed(context, '/login');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -98,7 +100,7 @@ class Welcome extends StatelessWidget {
                           const SizedBox(
                             height: 50,
                           ), // Spacing between the logo and the button
-                          WelcomeButton(onTap: nextPage),
+                          WelcomeButton(onTap: () => nextPage(context)),
                         ],
                       ),
                     ),

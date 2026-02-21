@@ -12,7 +12,6 @@ class Signup extends StatelessWidget {
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
-
   void signUserIn() {}
 
   @override
@@ -88,7 +87,7 @@ class Signup extends StatelessWidget {
                               size: 80,
                               color: AppColors.gold,
                             ),
-                        
+
                             // Username textfield
                             const SizedBox(
                               height: 60,
@@ -98,7 +97,7 @@ class Signup extends StatelessWidget {
                               hintText: 'Username',
                               obscureText: false,
                             ),
-                        
+
                             // Email textfield
                             const SizedBox(
                               height: 20,
@@ -108,7 +107,7 @@ class Signup extends StatelessWidget {
                               hintText: 'Email',
                               obscureText: false,
                             ),
-                        
+
                             // Password textfield
                             const SizedBox(
                               height: 20,
@@ -118,7 +117,7 @@ class Signup extends StatelessWidget {
                               hintText: 'Password',
                               obscureText: true,
                             ),
-                        
+
                             // Confirm Password textfield
                             const SizedBox(
                               height: 20,
@@ -128,13 +127,13 @@ class Signup extends StatelessWidget {
                               hintText: 'Confirm Password',
                               obscureText: true,
                             ),
-                        
+
                             // Login button
                             const SizedBox(
                               height: 50,
                             ), // Distance between the "Forgot password?" text and the login button, could be adjusted later
                             SignupButton(onTap: signUserIn),
-                        
+
                             // Not a member? Register now "Text Button"
                             const SizedBox(
                               height: 10,
@@ -164,12 +163,50 @@ class Signup extends StatelessWidget {
                                     ),
                                   ),
                                   const SizedBox(width: 4),
-                                  Text(
-                                    'Login now',
-                                    style: TextStyle(
-                                      color: AppColors.gold,
-                                      fontFamily: 'Jersey20',
-                                      fontSize: 18,
+
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    style: ButtonStyle(
+                                      padding: WidgetStateProperty.all(
+                                        EdgeInsets.zero,
+                                      ),
+                                      minimumSize: WidgetStateProperty.all(
+                                        Size.zero,
+                                      ),
+                                      tapTargetSize:
+                                          MaterialTapTargetSize.shrinkWrap,
+                                      overlayColor:
+                                          WidgetStateProperty.resolveWith((
+                                            states,
+                                          ) {
+                                            if (states.contains(
+                                              WidgetState.pressed,
+                                            )) {
+                                              return AppColors.purple
+                                                  .withValues(alpha: 0.4);
+                                            }
+                                            return null;
+                                          }),
+                                      foregroundColor:
+                                          WidgetStateProperty.resolveWith((
+                                            states,
+                                          ) {
+                                            if (states.contains(
+                                              WidgetState.pressed,
+                                            )) {
+                                              return AppColors.cream;
+                                            }
+                                            return AppColors.gold;
+                                          }),
+                                    ),
+                                    child: Text(
+                                      'Login now',
+                                      style: TextStyle(
+                                        fontFamily: 'Jersey20',
+                                        fontSize: 18,
+                                      ),
                                     ),
                                   ),
                                 ],
