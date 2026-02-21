@@ -3,8 +3,8 @@ import '../theme/colors.dart';
 import '../theme/spacing.dart';
 import '../componets/custom_button.dart';
 
-class Welcome extends StatelessWidget {
-  const Welcome({super.key});
+class Test extends StatelessWidget {
+  const Test({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class Welcome extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              //Top pill (Welcome to QuietBytes!)
+              //Top pill (Template Page)
               Container(
                 width: double.infinity,
                 height: AppSpacing.topPillHeight,
@@ -34,7 +34,7 @@ class Welcome extends StatelessWidget {
                   ),
                 ),
                 child: const Text(
-                  'Welcome to QuietBytes!',
+                  'Testing Page',
                   style: TextStyle(
                     color: AppColors.cream,
                     fontFamily: 'Jersey20',
@@ -61,45 +61,29 @@ class Welcome extends StatelessWidget {
                       ),
                     ),
 
-                    // Logo + text + button
+                    // Put whatever you want in the purple pill here (logo, text, buttons, etc.)
                     Padding(
                       padding: const EdgeInsets.only(
                         top: 50.0,
                       ), //How far the text is from the top of the purple pill
                       child: Column(
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: AppSpacing.textPaddingFromSides,
-                            ), // Text padding from the sides of the purple pill
-                            child: const Text(
-                              'Want to try new hobbies, food, and make friends at the same time?',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: AppColors.cream,
-                                fontFamily: 'Jersey20',
-                                fontSize: 28,
-                              ),
-                            ),
+                          CustomButton(
+                            text: 'Welcome Page',
+                            routeName: '/welcome',
                           ),
 
-                          const SizedBox(
-                            height: 0,
-                          ), // Spacing between the text and the logo
-                          // Logo
-                          const Image(
-                            image: AssetImage('assets/images/welcomeMap.png'),
-                            width: 400,
-                            height: 400,
-                            fit: BoxFit.contain,
-                          ),
-                          const SizedBox(
-                            height: 50,
-                          ), // Spacing between the logo and the button
+                          const SizedBox(height: 20.0),
+                          CustomButton(text: 'Login Page', routeName: '/login'),
+
+                          const SizedBox(height: 20.0),
                           CustomButton(
-                            text: 'Get Started',
-                            routeName: '/login',
+                            text: 'Sign Up Page',
+                            routeName: '/signup',
                           ),
+
+                          const SizedBox(height: 20.0),
+                          CustomButton(text: 'Blank Page', routeName: '/blank'),
                         ],
                       ),
                     ),

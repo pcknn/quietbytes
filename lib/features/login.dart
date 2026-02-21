@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../theme/spacing.dart';
 import '../componets/custom_textfield.dart';
-import '../componets/login_button.dart';
+import '../componets/custom_button.dart';
 
 class Login extends StatelessWidget {
   Login({super.key});
@@ -10,9 +10,9 @@ class Login extends StatelessWidget {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
-  void signUserIn(BuildContext context) {
-    Navigator.pop(context);
-  }
+  void signUserIn(
+    BuildContext context,
+  ) {} // Temporary does nothing until AUTH is implemented
 
   @override
   Widget build(BuildContext context) {
@@ -120,7 +120,8 @@ class Login extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   TextButton(
-                                    onPressed: () {}, // Temporary does nothing, will be changed later to actually take the user to the forgot password page
+                                    onPressed:
+                                        () {}, // Temporary does nothing, will be changed later to actually take the user to the forgot password page
                                     style: ButtonStyle(
                                       padding: WidgetStateProperty.all(
                                         EdgeInsets.zero,
@@ -170,9 +171,12 @@ class Login extends StatelessWidget {
                             const SizedBox(
                               height: 50,
                             ), // Distance between the "Forgot password?" text and the login button, could be adjusted later
-                            LoginButton(
-                              onTap: () => signUserIn(context),
-                            ), // Temporary taking the user back to the welcome page, will be changed later to actually sign the user in and take them to the home page
+                            CustomButton(
+                              text: 'Login',
+                              onTap: () => signUserIn(
+                                context,
+                              ), // Temporary does nothing until AUTH is implemented
+                            ),
                             // Not a member? Register now "Text Button"
                             const SizedBox(
                               height: 10,

@@ -2,11 +2,35 @@ import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../theme/spacing.dart';
 
-class WelcomeButton extends StatelessWidget {
-  //final Function()? onTap;
-  final VoidCallback onTap;
+class CustomButton extends StatelessWidget {
+  final String text;
+  final String? routeName;
+  final VoidCallback? onTap;
+  final bool clearStack;
 
-  const WelcomeButton({super.key, required this.onTap});
+  const CustomButton({
+    super.key,
+    required this.text,
+    this.routeName,
+    this.onTap,
+    this.clearStack = false,
+  }) : assert(
+         (routeName != null) ^ (onTap != null),
+         'Provide either routeName or onTap, but not both.',
+       );
+
+  void _handleTap(BuildContext context) {
+    if (onTap != null) {
+      onTap!();
+      return;
+    }
+    final route = routeName!;
+    if (clearStack) {
+      Navigator.pushNamedAndRemoveUntil(context, route, (r) => false);
+    } else {
+      Navigator.pushNamed(context, route);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +43,7 @@ class WelcomeButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppSpacing.pillBorderRadius),
         clipBehavior: Clip.antiAlias,
         child: InkWell(
-          onTap: onTap,
+          onTap: () => _handleTap(context),
           borderRadius: BorderRadius.circular(AppSpacing.pillBorderRadius),
           splashColor: AppColors.purple.withValues(alpha: 0.4),
           highlightColor: AppColors.lavender.withValues(alpha: 0.1),
@@ -29,10 +53,10 @@ class WelcomeButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(AppSpacing.pillBorderRadius),
             ),
             padding: const EdgeInsets.all(10), // "Height" of the button
-            child: const Center(
+            child: Center(
               child: Text(
-                'Get Started',
-                style: TextStyle(
+                text,
+                style: const TextStyle(
                   color: AppColors.purple,
                   fontFamily: 'Jersey20',
                   fontSize: 30,

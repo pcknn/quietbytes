@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../theme/spacing.dart';
 import '../componets/custom_textfield.dart';
-import '../componets/signup_button.dart';
+import '../componets/custom_button.dart';
 
 class Signup extends StatelessWidget {
   Signup({super.key});
@@ -132,7 +132,12 @@ class Signup extends StatelessWidget {
                             const SizedBox(
                               height: 50,
                             ), // Distance between the "Forgot password?" text and the login button, could be adjusted later
-                            SignupButton(onTap: signUserIn),
+                            CustomButton(
+                              text: 'Sign Up',
+                              routeName:
+                                  '/test', // Temporary taking the user back to the test page, will be changed later to actually sign the user in and take them to the home page
+                              //onTap: () => signUserIn(),
+                            ),
 
                             // Not a member? Register now "Text Button"
                             const SizedBox(
