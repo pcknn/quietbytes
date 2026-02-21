@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         '/welcome': (context) => Welcome(),
         '/login': (context) => Login(),
         '/signup': (context) => Signup(),
-        '/blank': (context) => const Blank(),
+        '/blank': (context) => Blank(),
       },
     );
   }

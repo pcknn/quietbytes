@@ -3,7 +3,7 @@ import '../theme/colors.dart';
 import '../theme/spacing.dart';
 import '../componets/custom_button.dart';
 
-//Rename and chank Blank to whatever you want and change it in the main.dart as well, just a template if needed
+//Rename and change Blank to whatever you want and change it in the main.dart as well, just a template if needed
 //To go back to the test page, click "Template Page", you can change the name and it will still work
 class Blank extends StatelessWidget {
   const Blank({super.key});
