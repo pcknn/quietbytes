@@ -87,7 +87,7 @@ class Login extends StatelessWidget {
                               size: 80,
                               color: AppColors.gold,
                             ),
-                        
+
                             // Username textfield
                             const SizedBox(
                               height: 140,
@@ -97,7 +97,7 @@ class Login extends StatelessWidget {
                               hintText: 'Username',
                               obscureText: false,
                             ),
-                        
+
                             // Password textfield
                             const SizedBox(
                               height: 20,
@@ -107,7 +107,7 @@ class Login extends StatelessWidget {
                               hintText: 'Password',
                               obscureText: true,
                             ),
-                        
+
                             // Forgot password?
                             const SizedBox(
                               height: 10,
@@ -119,24 +119,60 @@ class Login extends StatelessWidget {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  Text(
-                                    'Forgot password?',
-                                    style: TextStyle(
-                                      color: AppColors.cream,
-                                      fontFamily: 'Jersey20',
-                                      fontSize: 18,
+                                  TextButton(
+                                    onPressed: () {}, // Temporary does nothing, will be changed later to actually take the user to the forgot password page
+                                    style: ButtonStyle(
+                                      padding: WidgetStateProperty.all(
+                                        EdgeInsets.zero,
+                                      ),
+                                      minimumSize: WidgetStateProperty.all(
+                                        Size.zero,
+                                      ),
+                                      tapTargetSize:
+                                          MaterialTapTargetSize.shrinkWrap,
+                                      overlayColor:
+                                          WidgetStateProperty.resolveWith((
+                                            states,
+                                          ) {
+                                            if (states.contains(
+                                              WidgetState.pressed,
+                                            )) {
+                                              return AppColors.purple
+                                                  .withValues(alpha: 0.4);
+                                            }
+                                            return null;
+                                          }),
+                                      foregroundColor:
+                                          WidgetStateProperty.resolveWith((
+                                            states,
+                                          ) {
+                                            if (states.contains(
+                                              WidgetState.pressed,
+                                            )) {
+                                              return AppColors.gold;
+                                            }
+                                            return AppColors.cream;
+                                          }),
+                                    ),
+                                    child: Text(
+                                      'Forgot password?',
+                                      style: TextStyle(
+                                        fontFamily: 'Jersey20',
+                                        fontSize: 18,
+                                      ),
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-                        
+
                             // Login button
                             const SizedBox(
                               height: 50,
                             ), // Distance between the "Forgot password?" text and the login button, could be adjusted later
-                            LoginButton(onTap: () => signUserIn(context)), // Temporary taking the user back to the welcome page, will be changed later to actually sign the user in and take them to the home page
-                        
+                            LoginButton(
+                              onTap: () => signUserIn(context),
+                            ), // Temporary taking the user back to the welcome page, will be changed later to actually sign the user in and take them to the home page
                             // Not a member? Register now "Text Button"
                             const SizedBox(
                               height: 10,
@@ -166,29 +202,43 @@ class Login extends StatelessWidget {
                                     ),
                                   ),
                                   const SizedBox(width: 4),
-                                  
+
                                   TextButton(
                                     onPressed: () {
                                       Navigator.pushNamed(context, '/signup');
                                     },
                                     style: ButtonStyle(
-                                      padding: WidgetStateProperty.all(EdgeInsets.zero),
-                                      minimumSize: WidgetStateProperty.all(Size.zero),
-                                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                                      overlayColor: WidgetStateProperty.resolveWith((states) {
-                                        if (states.contains(
-                                              WidgetState.pressed)) {
-                                          return AppColors.purple.withValues(alpha: 0.4);
-                                        }
-                                        return null;
-                                      }),
-                                      foregroundColor: WidgetStateProperty.resolveWith((states) {
-                                        if (states.contains(
-                                              WidgetState.pressed)) {
-                                          return AppColors.cream;
-                                        }
-                                        return AppColors.gold;
-                                      }),
+                                      padding: WidgetStateProperty.all(
+                                        EdgeInsets.zero,
+                                      ),
+                                      minimumSize: WidgetStateProperty.all(
+                                        Size.zero,
+                                      ),
+                                      tapTargetSize:
+                                          MaterialTapTargetSize.shrinkWrap,
+                                      overlayColor:
+                                          WidgetStateProperty.resolveWith((
+                                            states,
+                                          ) {
+                                            if (states.contains(
+                                              WidgetState.pressed,
+                                            )) {
+                                              return AppColors.purple
+                                                  .withValues(alpha: 0.4);
+                                            }
+                                            return null;
+                                          }),
+                                      foregroundColor:
+                                          WidgetStateProperty.resolveWith((
+                                            states,
+                                          ) {
+                                            if (states.contains(
+                                              WidgetState.pressed,
+                                            )) {
+                                              return AppColors.cream;
+                                            }
+                                            return AppColors.gold;
+                                          }),
                                     ),
                                     child: Text(
                                       'Register now',
