@@ -1,4 +1,4 @@
-package com.quietbytes.quietbytes
+package com.example.quietbytes
 
 import io.flutter.embedding.android.FlutterActivity
 
