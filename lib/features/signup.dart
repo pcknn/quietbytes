@@ -12,7 +12,9 @@ class Signup extends StatelessWidget {
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
-  void signUserIn() {}
+  void signUserIn(
+    BuildContext context,
+  ) {} // Temporary empty function for onTap, will be implemented later for Sign Up functionality
 
   @override
   Widget build(BuildContext context) {
@@ -77,20 +79,20 @@ class Signup extends StatelessWidget {
                     // Logo
                     Padding(
                       padding: const EdgeInsets.only(
-                        top: 70.0,
+                        top: 60,
                       ), //Where the logo is placed, could be adjusted later
                       child: SingleChildScrollView(
                         child: Column(
                           children: [
-                            const Icon(
-                              Icons.add_photo_alternate_outlined,
-                              size: 80,
-                              color: AppColors.gold,
+                            const Image(
+                              image: AssetImage('assets/images/burgerByte.png'),
+                              width: 320,
+                              fit: BoxFit.contain,
                             ),
 
                             // Username textfield
                             const SizedBox(
-                              height: 60,
+                              height: 40,
                             ), // Where the textfields are placed based of logo, could be adjusted later
                             CustomTextfield(
                               controller: usernameController,
@@ -135,7 +137,7 @@ class Signup extends StatelessWidget {
                             CustomButton(
                               text: 'Sign Up',
                               routeName:
-                                  '/test', // Temporary taking the user back to the test page, will be changed later to actually sign the user in and take them to the home page
+                                  '/test', //Temporary route to Test Page, change to onTap later when signUserIn is implemented
                               //onTap: () => signUserIn(),
                             ),
 
