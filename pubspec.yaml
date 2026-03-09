@@ -13,6 +13,8 @@ dependencies:
   cupertino_icons: ^1.0.6
 
   google_maps_flutter: ^2.14.2
+
+  google_fonts: ^6.1.0
   
   # State Management (Choose ONE)
   flutter_riverpod: ^2.0.0  # OR provider: ^6.0.0
@@ -39,6 +41,9 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/map_style.json
+    - assets/icons/
 
   #assets:
    # - assets/images/
