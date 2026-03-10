@@ -4,6 +4,8 @@ import 'features/signup.dart';
 import 'features/welcome.dart';
 import 'features/test.dart';
 import 'features/blank.dart';
+import 'features/setup_profile.dart';
+import 'features/notifications.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +24,10 @@ class MyApp extends StatelessWidget {
         '/welcome': (context) => Welcome(),
         '/login': (context) => Login(),
         '/signup': (context) => Signup(),
+        '/setupprofile': (context) => SetupProfile(),
         '/blank': (context) => Blank(),
+        '/notifications': (context) => Notifications(),
+
       },
     );
   }

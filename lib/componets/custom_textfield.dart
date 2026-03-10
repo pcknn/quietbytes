@@ -7,11 +7,14 @@ class CustomTextfield extends StatelessWidget {
   final String hintText;
   final bool obscureText;
 
+  final bool showToggle;
+
   const CustomTextfield({
     super.key,
     required this.controller,
     required this.hintText,
     this.obscureText = false,
+    this.showToggle = false,
   });
 
   @override

@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../theme/spacing.dart';
 import '../componets/custom_button.dart';
+import '../componets/navigation_bar.dart';
 
-class Test extends StatelessWidget {
-  const Test({super.key});
+//Rename and change Notifications to whatever you want and change it in the main.dart as well, just a template if needed
+//To go back to the test page, click "Template Page", you can change the name and it will still work
+class Notifications extends StatelessWidget {
+  const Notifications({super.key});
+
+  void clearNotifications(BuildContext context) {}
 
   @override
   Widget build(BuildContext context) {
@@ -33,12 +38,17 @@ class Test extends StatelessWidget {
                     AppSpacing.pillBorderRadius,
                   ),
                 ),
-                child: const Text(
-                  'Testing Page',
-                  style: TextStyle(
-                    color: AppColors.cream,
-                    fontFamily: 'Jersey20',
-                    fontSize: 30,
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/test');
+                  },
+                  child: Text(
+                    'Notifications',
+                    style: TextStyle(
+                      color: AppColors.cream,
+                      fontFamily: 'Jersey20',
+                      fontSize: 30,
+                    ),
                   ),
                 ),
               ),
@@ -53,6 +63,7 @@ class Test extends StatelessWidget {
                   children: [
                     Container(
                       width: double.infinity,
+                      //height: AppSpacing.test,
                       decoration: BoxDecoration(
                         color: AppColors.purple,
                         borderRadius: BorderRadius.circular(
@@ -68,34 +79,26 @@ class Test extends StatelessWidget {
                       ), //How far the text is from the top of the purple pill
                       child: Column(
                         children: [
+                          // ------ START HERE To Add NOTIFICATIONS --------
+
+
+                          // ------ END HERE To Add NOTIFICATIONS --------
+                          const SizedBox(height: 20.0), //Should be spacing between last notifications and button.
                           CustomButton(
-                            text: 'Welcome Page',
-                            routeName: '/welcome',
+                            text: 'Clear Notifications',
+                            onTap: () => clearNotifications(context),
                           ),
-
-                          const SizedBox(height: 20.0),
-                          CustomButton(text: 'Login Page', routeName: '/login'),
-
-                          const SizedBox(height: 20.0),
-                          CustomButton(
-                            text: 'Sign Up Page',
-                            routeName: '/signup',
-                          ),
-
-                          const SizedBox(height: 20.0),
-                          CustomButton(text: 'Blank Page', routeName: '/blank'),
-
-                          const SizedBox(height: 20.0),
-                          CustomButton(text: 'Setup Profile Page', routeName: '/setupprofile'),
-
-                          const SizedBox(height: 20.0),
-                          CustomButton(text: 'Notifications Page', routeName: '/notifications'),
                         ],
                       ),
                     ),
                   ],
                 ),
               ),
+
+              //Bottom pill
+              const SizedBox(height: AppSpacing.pillsSpacing),
+
+              NavigationBarTest(),
             ],
           ),
         ),

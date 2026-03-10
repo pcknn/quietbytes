@@ -4,8 +4,8 @@ import '../theme/spacing.dart';
 import '../componets/custom_textfield.dart';
 import '../componets/custom_button.dart';
 
-class Signup extends StatelessWidget {
-  Signup({super.key});
+class SetupProfile extends StatelessWidget {
+  SetupProfile({super.key});
 
   final usernameController = TextEditingController();
   final emailController = TextEditingController();
@@ -44,7 +44,7 @@ class Signup extends StatelessWidget {
                   ),
                 ),
                 child: const Text(
-                  'Welcome to QuietBytes!',
+                  'Setup Your Profile!',
                   style: TextStyle(
                     color: AppColors.cream,
                     fontFamily: 'Jersey20',
@@ -85,7 +85,7 @@ class Signup extends StatelessWidget {
                         child: Column(
                           children: [
                             const Image(
-                              image: AssetImage('assets/images/burgerByte.png'),
+                              image: AssetImage('assets/images/cat.png'),
                               width: 320,
                               fit: BoxFit.contain,
                             ),
@@ -137,7 +137,7 @@ class Signup extends StatelessWidget {
                             CustomButton(
                               text: 'Sign Up',
                               routeName:
-                                  '/setupprofile', //Temporary route to Test Page, change to onTap later when signUserIn is implemented
+                                  '/test', //Temporary route to Test Page, change to onTap later when signUserIn is implemented
                               //onTap: () => signUserIn(),
                             ),
 

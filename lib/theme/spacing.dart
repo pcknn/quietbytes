@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 class AppSpacing {
   //General Spacing
   static const double pillBorderRadius = 28.0; //Border radius of pills
@@ -14,4 +16,8 @@ class AppSpacing {
   static const double topPillHeight = 60.0; //Height of the top pill
   static const double topPillTextPadding =
       20.0; //Padding of the text inside the top pill
+
+  //Notifications Screen Spacing
+  static const double test = 650.0;
+  static const double bottomPillHeight = 100.0; //Height of the bottom pill
 }
