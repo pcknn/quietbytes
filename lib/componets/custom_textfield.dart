@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../theme/spacing.dart';
 
-class CustomTextfield extends StatelessWidget {
+class CustomTextfield extends StatefulWidget {
   final controller;
   final String hintText;
   final bool obscureText;
-
   final bool showToggle;
 
   const CustomTextfield({
@@ -18,6 +17,19 @@ class CustomTextfield extends StatelessWidget {
   });
 
   @override
+  State<CustomTextfield> createState() => _CustomTextfieldState();
+}
+
+class _CustomTextfieldState extends State<CustomTextfield> {
+  late bool _isObscure;
+
+  @override
+  void initState() {
+    super.initState();
+    _isObscure = widget.obscureText;
+  }
+
+  @override
   Widget build(BuildContext context) {
     // Username textfield
     return Padding(
@@ -25,8 +37,8 @@ class CustomTextfield extends StatelessWidget {
         horizontal: 30.0,
       ), // "Width/Lenght" of the button
       child: TextField(
-        controller: controller,
-        obscureText: obscureText,
+        controller: widget.controller,
+        obscureText: _isObscure,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(AppSpacing.pillBorderRadius),
@@ -38,12 +50,25 @@ class CustomTextfield extends StatelessWidget {
           ),
           fillColor: AppColors.lavender,
           filled: true,
-          hintText: hintText,
+          hintText: widget.hintText,
           hintStyle: const TextStyle(
             color: AppColors.purple,
             fontFamily: 'Jersey20',
             fontSize: 20,
           ),
+          // Suffix icon for password textfield
+          suffixIcon: widget.showToggle
+              ? IconButton(
+                  onPressed: () {
+                    setState(() {
+                      _isObscure = !_isObscure;
+                    });
+                  },
+                  icon: Icon(
+                    _isObscure ? Icons.visibility_off : Icons.visibility,
+                  ),
+                )
+              : null,
         ),
       ),
     );

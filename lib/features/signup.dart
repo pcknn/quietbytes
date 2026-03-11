@@ -118,6 +118,7 @@ class Signup extends StatelessWidget {
                               controller: passwordController,
                               hintText: 'Password',
                               obscureText: true,
+                              showToggle: true,
                             ),
 
                             // Confirm Password textfield
@@ -128,6 +129,7 @@ class Signup extends StatelessWidget {
                               controller: confirmPasswordController,
                               hintText: 'Confirm Password',
                               obscureText: true,
+                              showToggle: true,
                             ),
 
                             // Login button

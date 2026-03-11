@@ -3,6 +3,7 @@ import '../theme/colors.dart';
 import '../theme/spacing.dart';
 import '../componets/custom_button.dart';
 import '../componets/navigation_bar.dart';
+import '../componets/notification_tile.dart';
 
 //Rename and change Notifications to whatever you want and change it in the main.dart as well, just a template if needed
 //To go back to the test page, click "Template Page", you can change the name and it will still work
@@ -76,14 +77,55 @@ class Notifications extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(
                         top: 50.0,
+                        bottom: 15.0,
                       ), //How far the text is from the top of the purple pill
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          // ------ START HERE To Add NOTIFICATIONS --------
+                          Expanded(
+                            child: ListView(
+                              children: [
+                                // ------ START HERE To Add NOTIFICATIONS --------
 
+                                // ---------- TESTING ----------
+                                NotificationTile(
+                                  text: 'New message from Alice',
+                                  onTap: () {
+                                    // Handle tap on this notification
+                                  },
+                                ),
+                                NotificationTile(
+                                  text: 'Your order has been shipped',
+                                  onTap: () {
+                                    // Handle tap on this notification
+                                  },
+                                ),
+                                NotificationTile(
+                                  text: 'Reminder: Meeting at 3 PM',
+                                  onTap: () {
+                                    // Handle tap on this notification
+                                  },
+                                ),
+                                NotificationTile(
+                                  text: 'New comment on your post',
+                                  onTap: () {
+                                    // Handle tap on this notification
+                                  },
+                                ),
+                                NotificationTile(
+                                  text: 'Your password was changed successfully',
+                                  onTap: () {
+                                    // Handle tap on this notification
+                                  },
+                                ),
+                                //----- END OF TESTING --------
 
-                          // ------ END HERE To Add NOTIFICATIONS --------
-                          const SizedBox(height: 20.0), //Should be spacing between last notifications and button.
+                                // ------ END HERE To Add NOTIFICATIONS --------
+                              ],
+                            ),
+                          ),
+
+                          const SizedBox(height: 20.0),
                           CustomButton(
                             text: 'Clear Notifications',
                             onTap: () => clearNotifications(context),
