@@ -3,6 +3,8 @@ import '../theme/colors.dart';
 import '../theme/spacing.dart';
 import '../componets/custom_button.dart';
 import '../componets/navigation_bar.dart';
+import '../componets/settings_tile.dart';
+import '../componets/settings_headers.dart';
 
 //Rename and change Settings to whatever you want and change it in the main.dart as well, just a template if needed
 //To go back to the test page, click "Template Page", you can change the name and it will still work
@@ -75,13 +77,107 @@ class Settings extends StatelessWidget {
                     // Put whatever you want in the purple pill here (logo, text, buttons, etc.)
                     Padding(
                       padding: const EdgeInsets.only(
-                        top: 50.0,
+                        top: 25.0,
                       ), //How far the text is from the top of the purple pill
                       child: Column(
                         children: [
-                          // ------ START HERE To Add NOTIFICATIONS --------
+                          Expanded(
+                            child: ListView(
+                              children: [
+                                //Profile Section
+                                Center(
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        width: 250,
+                                        height: 250,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
+                                            color: AppColors.cream,
+                                            width: 2,
+                                          ),
+                                        ),
+                                        child: ClipOval(
+                                          child: Image.asset(
+                                            'assets/images/cat.png',
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(height: 8),
 
-                          // ------ END HERE To Add NOTIFICATIONS --------
+                                      //ENTER BUTTON --------
+
+                                      //ENTER BUTTON ---------
+                                    ],
+                                  ),
+                                ),
+
+                                //
+
+                                // ------ START HERE To Add SETTINGS --------
+                                const SizedBox(height: 10),
+                                // ----- START OF ACCOUNT SETTINGS ------
+                                SettingsHeaders(
+                                  title: "Account Settings",
+                                  icon: Icons.person,
+                                ),
+
+                                SettingsTile(
+                                  title: "Change Your Username",
+                                  subtitle: "subtitle",
+                                  icon: Icons.home,
+                                  onTap: () {},
+                                ),
+
+                                SettingsTile(
+                                  title: "Change Your Email",
+                                  subtitle: "subtitle",
+                                  icon: Icons.email,
+                                  onTap: () {},
+                                ),
+
+                                SettingsTile(
+                                  title: "Change Your Password",
+                                  subtitle: "subtitle",
+                                  icon: Icons.password,
+                                  onTap: () {},
+                                ),
+
+                                // ----- END OF ACCOUNT SETTINGS ------
+                                Divider(
+                                  color: AppColors.cream.withValues(alpha: 0.4),
+                                  thickness: 2,
+                                  indent: AppSpacing.horizontalPaddingWidth,
+                                  endIndent: AppSpacing.horizontalPaddingWidth,
+                                ),
+
+                                // ---- START OF X SETTINGS ------
+                                SettingsHeaders(
+                                  title: "XYZ Settings",
+                                  icon: Icons.person,
+                                ),
+
+                                SettingsTile(
+                                  title: "XYZ",
+                                  subtitle: "subtitle",
+                                  icon: Icons.home,
+                                  onTap: () {},
+                                ),
+
+                                SettingsTile(
+                                  title: "XYZ",
+                                  subtitle: "subtitle",
+                                  icon: Icons.home,
+                                  onTap: () {},
+                                ),
+                                // ---- END OF X SETTINGS -----
+
+                                // ------ END HERE To Add SETTINGS --------
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     ),

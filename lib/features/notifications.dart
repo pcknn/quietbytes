@@ -76,7 +76,7 @@ class Notifications extends StatelessWidget {
                     // Put whatever you want in the purple pill here (logo, text, buttons, etc.)
                     Padding(
                       padding: const EdgeInsets.only(
-                        top: 50.0,
+                        top: 15.0,
                         bottom: 15.0,
                       ), //How far the text is from the top of the purple pill
                       child: Column(
@@ -113,7 +113,65 @@ class Notifications extends StatelessWidget {
                                   },
                                 ),
                                 NotificationTile(
-                                  text: 'Your password was changed successfully',
+                                  text:
+                                      'Your password was changed successfully',
+                                  onTap: () {
+                                    // Handle tap on this notification
+                                  },
+                                ),
+                                NotificationTile(
+                                  text: 'New friend request from Bob',
+                                  onTap: () {
+                                    // Handle tap on this notification
+                                  },
+                                ),
+                                NotificationTile(
+                                  text:
+                                      'Your subscription will expire in 3 days',
+                                  onTap: () {
+                                    // Handle tap on this notification
+                                  },
+                                ),
+                                NotificationTile(
+                                  text: 'New message from Alice',
+                                  onTap: () {
+                                    // Handle tap on this notification
+                                  },
+                                ),
+                                NotificationTile(
+                                  text: 'Your order has been shipped',
+                                  onTap: () {
+                                    // Handle tap on this notification
+                                  },
+                                ),
+                                NotificationTile(
+                                  text: 'Reminder: Meeting at 3 PM',
+                                  onTap: () {
+                                    // Handle tap on this notification
+                                  },
+                                ),
+                                NotificationTile(
+                                  text: 'New comment on your post',
+                                  onTap: () {
+                                    // Handle tap on this notification
+                                  },
+                                ),
+                                NotificationTile(
+                                  text:
+                                      'Your password was changed successfully',
+                                  onTap: () {
+                                    // Handle tap on this notification
+                                  },
+                                ),
+                                NotificationTile(
+                                  text: 'New friend request from Bob',
+                                  onTap: () {
+                                    // Handle tap on this notification
+                                  },
+                                ),
+                                NotificationTile(
+                                  text:
+                                      'Your subscription will expire in 3 days',
                                   onTap: () {
                                     // Handle tap on this notification
                                   },
@@ -125,7 +183,7 @@ class Notifications extends StatelessWidget {
                             ),
                           ),
 
-                          const SizedBox(height: 20.0),
+                          const SizedBox(height: 15.0),
                           CustomButton(
                             text: 'Clear Notifications',
                             onTap: () => clearNotifications(context),
