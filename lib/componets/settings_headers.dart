@@ -20,13 +20,13 @@ class SettingsHeaders extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
-                width: 38,
-                height: 38,
+                width: 52,
+                height: 52,
                 decoration: BoxDecoration(
                   color: AppColors.rose,
                   shape: BoxShape.circle,
                 ),
-                child: Icon(icon, color: AppColors.cream, size: 25),
+                child: Icon(icon, color: AppColors.cream, size: 29),
               ),
               const SizedBox(width: 8),
               Text(
@@ -34,7 +34,7 @@ class SettingsHeaders extends StatelessWidget {
                 style: TextStyle(
                   color: AppColors.cream,
                   fontFamily: 'Jersey20',
-                  fontSize: 18,
+                  fontSize: 26,
                 ),
               ),
             ],

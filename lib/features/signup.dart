@@ -139,7 +139,7 @@ class Signup extends StatelessWidget {
                             CustomButton(
                               text: 'Sign Up',
                               routeName:
-                                  '/setupprofile', //Temporary route to Test Page, change to onTap later when signUserIn is implemented
+                                  '/test', //Temporary route to Test Page, change to onTap later when signUserIn is implemented
                               //onTap: () => signUserIn(),
                             ),
 

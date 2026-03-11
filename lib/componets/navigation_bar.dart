@@ -7,27 +7,18 @@ class NavigationBarTest extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return NavigationBar(destinations:  
-    [
-        NavigationDestination(
-          icon: Icon(Icons.home),
-          label: 'Home',
-        ),
-        NavigationDestination(
-          icon: Icon(Icons.search),
-          label: 'Search',
-        ),
+    return NavigationBar(
+      destinations: [
+        NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+        NavigationDestination(icon: Icon(Icons.search), label: 'Search'),
         NavigationDestination(
           icon: Icon(Icons.notifications),
           label: 'Notifications',
         ),
-        NavigationDestination(
-          icon: Icon(Icons.person),
-          label: 'Profile',
-        ),
+        NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
+        NavigationDestination(icon: Icon(Icons.settings), label: 'Settings'),
       ],
       backgroundColor: AppColors.purple,
-      
     );
   }
 }

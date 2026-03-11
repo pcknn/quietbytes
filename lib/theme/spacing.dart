@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 class AppSpacing {
   //General Spacing
   static const double pillBorderRadius = 28.0; //Border radius of pills

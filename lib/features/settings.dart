@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../theme/spacing.dart';
-import '../componets/custom_button.dart';
 import '../componets/navigation_bar.dart';
 import '../componets/settings_tile.dart';
 import '../componets/settings_headers.dart';
@@ -107,7 +106,68 @@ class Settings extends StatelessWidget {
                                       ),
                                       const SizedBox(height: 8),
 
-                                      //ENTER BUTTON --------
+                                      //-------- CHANGE PHOTO --------
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 30.0,
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            TextButton(
+                                              onPressed: () {}, //ENTER LOGIC BACKEND
+                                              style: ButtonStyle(
+                                                padding:
+                                                    WidgetStateProperty.all(
+                                                      EdgeInsets.zero,
+                                                    ),
+                                                minimumSize:
+                                                    WidgetStateProperty.all(
+                                                      Size.zero,
+                                                    ),
+                                                tapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                overlayColor:
+                                                    WidgetStateProperty.resolveWith(
+                                                      (states) {
+                                                        if (states.contains(
+                                                          WidgetState.pressed,
+                                                        )) {
+                                                          return AppColors
+                                                              .purple
+                                                              .withValues(
+                                                                alpha: 0.4,
+                                                              );
+                                                        }
+                                                        return null;
+                                                      },
+                                                    ),
+                                                foregroundColor:
+                                                    WidgetStateProperty.resolveWith(
+                                                      (states) {
+                                                        if (states.contains(
+                                                          WidgetState.pressed,
+                                                        )) {
+                                                          return AppColors
+                                                              .cream;
+                                                        }
+                                                        return AppColors.gold;
+                                                      },
+                                                    ),
+                                              ),
+                                              child: Text(
+                                                'Change Photo',
+                                                style: TextStyle(
+                                                  fontFamily: 'Jersey20',
+                                                  fontSize: 26,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
 
                                       //ENTER BUTTON ---------
                                     ],
@@ -152,6 +212,7 @@ class Settings extends StatelessWidget {
                                   indent: AppSpacing.horizontalPaddingWidth,
                                   endIndent: AppSpacing.horizontalPaddingWidth,
                                 ),
+                                const SizedBox(height: 10),
 
                                 // ---- START OF X SETTINGS ------
                                 SettingsHeaders(
