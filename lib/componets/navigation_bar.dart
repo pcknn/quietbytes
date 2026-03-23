@@ -24,12 +24,17 @@ class NavigationBarTest extends StatelessWidget {
       ),
       child: BottomAppBar(
         elevation: 0.0,
+        padding: EdgeInsets.zero,
+        color: Colors.transparent,
+        shadowColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
         child: ClipRRect(
-          borderRadius: BorderRadiusGeometry.circular(10),
+          borderRadius: BorderRadiusGeometry.circular(50),
           child: Container(
-            height: 60,
-            color: Colors.green,
+            height: 64,
+            color: AppColors.purple,
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 navItem(
                   Icons.home_outlined,
@@ -40,6 +45,21 @@ class NavigationBarTest extends StatelessWidget {
                   Icons.message_outlined,
                   pageIndex == 1,
                   onTap: () => onTap(1),
+                ),
+                GestureDetector(
+                  onTap: () => onTap(4),
+                  child: Container(
+                    width: 48,
+                    height: 48,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: AppColors.rose
+                    ),
+                    child: const Icon(Icons.add,
+                    color: AppColors.cream,
+                    size: 28,
+                    ),
+                  ),
                 ),
                 navItem(
                   Icons.notifications_none_outlined,

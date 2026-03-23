@@ -31,6 +31,7 @@ class _MainShellState extends State<MainShell> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.lavender,
       body: _pages[_pageIndex],
       bottomNavigationBar: NavigationBarTest(
         pageIndex: _pageIndex,

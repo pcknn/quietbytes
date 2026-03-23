@@ -4,6 +4,7 @@ import '../theme/spacing.dart';
 import '../componets/custom_button.dart';
 //import '../componets/navigation_bar.dart';
 import '../componets/notification_tile.dart';
+import '../componets/custom_headers.dart';
 
 //Rename and change Notifications to whatever you want and change it in the main.dart as well, just a template if needed
 //To go back to the test page, click "Template Page", you can change the name and it will still work
@@ -26,33 +27,7 @@ class Notifications extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //Top pill (Template Page)
-              Container(
-                width: double.infinity,
-                height: AppSpacing.topPillHeight,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: AppSpacing.topPillTextPadding,
-                ),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: AppColors.purple,
-                  borderRadius: BorderRadius.circular(
-                    AppSpacing.pillBorderRadius,
-                  ),
-                ),
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/test');
-                  },
-                  child: Text(
-                    'Notifications',
-                    style: TextStyle(
-                      color: AppColors.cream,
-                      fontFamily: 'Jersey20',
-                      fontSize: 30,
-                    ),
-                  ),
-                ),
-              ),
+              CustomHeaders(title: 'Notifications', showBack: true, showSettings: true,),
 
               const SizedBox(
                 height: AppSpacing.pillsSpacing,
