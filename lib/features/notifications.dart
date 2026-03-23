@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../theme/spacing.dart';
 import '../componets/custom_button.dart';
-import '../componets/navigation_bar.dart';
+//import '../componets/navigation_bar.dart';
 import '../componets/notification_tile.dart';
 
 //Rename and change Notifications to whatever you want and change it in the main.dart as well, just a template if needed
@@ -195,10 +195,6 @@ class Notifications extends StatelessWidget {
                 ),
               ),
 
-              //Bottom pill
-              const SizedBox(height: AppSpacing.pillsSpacing),
-
-              NavigationBarTest(),
             ],
           ),
         ),

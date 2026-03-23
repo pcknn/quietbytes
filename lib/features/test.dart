@@ -83,7 +83,7 @@ class Test extends StatelessWidget {
                           ),
 
                           const SizedBox(height: 20.0),
-                          CustomButton(text: 'Blank Page', routeName: '/blank'),
+                          CustomButton(text: 'Home (Shell)', routeName: '/home'),
 
                           const SizedBox(height: 20.0),
                           CustomButton(text: 'Settings', routeName: '/settings'),

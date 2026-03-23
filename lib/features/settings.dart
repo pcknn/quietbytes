@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../theme/spacing.dart';
-import '../componets/navigation_bar.dart';
+//import '../componets/navigation_bar.dart';
 import '../componets/settings_tile.dart';
 import '../componets/settings_headers.dart';
 
@@ -246,10 +246,6 @@ class Settings extends StatelessWidget {
                 ),
               ),
 
-              //Bottom pill
-              const SizedBox(height: AppSpacing.pillsSpacing),
-
-              NavigationBarTest(),
             ],
           ),
         ),
