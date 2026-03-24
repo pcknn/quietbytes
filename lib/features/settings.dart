@@ -26,7 +26,11 @@ class Settings extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //Top pill (Template Page)
-              CustomHeaders(title: 'Settings', showBack: true, showSettings: true,),
+              CustomHeaders(
+                title: 'Settings',
+                showBack: true,
+                showSettings: true,
+              ),
 
               const SizedBox(
                 height: AppSpacing.pillsSpacing,
@@ -90,7 +94,8 @@ class Settings extends StatelessWidget {
                                               MainAxisAlignment.center,
                                           children: [
                                             TextButton(
-                                              onPressed: () {}, //ENTER LOGIC BACKEND
+                                              onPressed:
+                                                  () {}, //ENTER LOGIC BACKEND
                                               style: ButtonStyle(
                                                 padding:
                                                     WidgetStateProperty.all(
@@ -219,7 +224,6 @@ class Settings extends StatelessWidget {
                   ],
                 ),
               ),
-
             ],
           ),
         ),

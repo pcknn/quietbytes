@@ -50,7 +50,7 @@ class CustomHeaders extends StatelessWidget {
                 child: const Icon(
                   Icons.arrow_back_ios_rounded,
                   color: AppColors.cream,
-                  size: 22,
+                  size: 30,
                 ),
               ),
             ),
@@ -66,9 +66,9 @@ class CustomHeaders extends StatelessWidget {
                   }
                 },
                 child: const Icon(
-                  Icons.settings_outlined,
+                  Icons.settings_rounded,
                   color: AppColors.cream,
-                  size: 22,
+                  size: 30,
                 ),
               ),
             ),

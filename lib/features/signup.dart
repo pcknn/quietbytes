@@ -31,7 +31,7 @@ class Signup extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //Top pill (Welcome to QuietBytes!)
-              CustomHeaders(title: 'Welcome to QuietBytes!', showBack: true,),
+              CustomHeaders(title: 'Welcome to QuietBytes!', showBack: true),
 
               const SizedBox(
                 height: AppSpacing.pillsSpacing,

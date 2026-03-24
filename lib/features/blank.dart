@@ -3,9 +3,6 @@ import '../theme/colors.dart';
 import '../theme/spacing.dart';
 import '../componets/custom_headers.dart';
 
-import '../componets/navigation_bar.dart';
-import '../componets/navigation_model.dart';
-
 //Rename and change Blank to whatever you want and change it in the main.dart as well, just a template if needed
 //To go back to the test page, click "Template Page", you can change the name and it will still work
 class Blank extends StatelessWidget {
@@ -25,10 +22,7 @@ class Blank extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //Top pill (Template Page)
-              CustomHeaders(
-                title: '"Home" Page',
-                showSettings: true,
-              ),
+              CustomHeaders(title: '"Home" Page', showSettings: true),
 
               const SizedBox(
                 height: AppSpacing.pillsSpacing,
@@ -55,11 +49,7 @@ class Blank extends StatelessWidget {
                       ), //How far the text is from the top of the purple pill
                       child: Column(
                         children: [
-
-
                           // ------ START HERE (I think)--------
-
-                          
                         ],
                       ),
                     ),

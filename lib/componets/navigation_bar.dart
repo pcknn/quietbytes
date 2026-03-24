@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import '../theme/colors.dart';
-import '../theme/spacing.dart';
 
 class NavigationBarTest extends StatelessWidget {
   final int pageIndex;
@@ -34,7 +33,7 @@ class NavigationBarTest extends StatelessWidget {
             height: 64,
             color: AppColors.purple,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 navItem(
                   Icons.home_outlined,
@@ -46,19 +45,21 @@ class NavigationBarTest extends StatelessWidget {
                   pageIndex == 1,
                   onTap: () => onTap(1),
                 ),
-                GestureDetector(
-                  onTap: () => onTap(4),
-                  child: Container(
-                    width: 66,
-                    height: 66,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: AppColors.rose,
-                    ),
-                    child: const Icon(
-                      Icons.add_rounded,
-                      color: AppColors.cream,
-                      size: 68,
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () => onTap(4),
+                    child: Container(
+                      width: 66,
+                      height: 66,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: AppColors.rose,
+                      ),
+                      child: const Icon(
+                        Icons.add_rounded,
+                        color: AppColors.cream,
+                        size: 68,
+                      ),
                     ),
                   ),
                 ),
@@ -87,8 +88,8 @@ Widget navItem(IconData icon, bool selected, {Function()? onTap}) {
       onTap: onTap,
       child: Center(
         child: AnimatedContainer(
-          duration: const Duration(microseconds: 200),
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+          duration: const Duration(milliseconds: 150),
+          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
           decoration: BoxDecoration(
             color: selected
                 ? AppColors.lavender.withValues(alpha: 0.5)
@@ -99,8 +100,8 @@ Widget navItem(IconData icon, bool selected, {Function()? onTap}) {
             icon,
             color: selected
                 ? Colors.white
-                : Colors.white.withValues(alpha: 0.4),
-            size: 40,
+                : Colors.white.withValues(alpha: 0.6),
+            size: 45,
           ),
         ),
       ),

@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../componets/navigation_bar.dart';
-import '../componets/navigation_model.dart';
 
 import '../features/blank.dart';
 import '../features/notifications.dart';
 import '../features/chat.dart';
 import '../features/profile.dart';
-
 
 class MainShell extends StatefulWidget {
   const MainShell({super.key});
@@ -20,7 +18,7 @@ class _MainShellState extends State<MainShell> {
   final List<int> _history = [];
 
   void _navigateTo(int index) {
-    if(_pageIndex == index) return;
+    if (_pageIndex == index) return;
     setState(() {
       _history.add(_pageIndex);
       _pageIndex = index;
@@ -28,7 +26,7 @@ class _MainShellState extends State<MainShell> {
   }
 
   void _goBack() {
-    if(_history.isEmpty) return;
+    if (_history.isEmpty) return;
     setState(() {
       _pageIndex = _history.removeLast();
     });
@@ -53,7 +51,7 @@ class _MainShellState extends State<MainShell> {
       body: pages[_pageIndex],
       bottomNavigationBar: NavigationBarTest(
         pageIndex: _pageIndex,
-        onTap: (index) => _navigateTo(index,)
+        onTap: (index) => _navigateTo(index),
       ),
     );
   }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../theme/spacing.dart';
 import '../componets/custom_button.dart';
-//import '../componets/navigation_bar.dart';
 import '../componets/notification_tile.dart';
 import '../componets/custom_headers.dart';
 
@@ -29,7 +28,12 @@ class Notifications extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //Top pill (Template Page)
-              CustomHeaders(title: 'Notifications', showBack: true, showSettings: true, onBack: onBack,),
+              CustomHeaders(
+                title: 'Notifications',
+                showBack: true,
+                showSettings: true,
+                onBack: onBack,
+              ),
 
               const SizedBox(
                 height: AppSpacing.pillsSpacing,
@@ -171,7 +175,6 @@ class Notifications extends StatelessWidget {
                   ],
                 ),
               ),
-
             ],
           ),
         ),

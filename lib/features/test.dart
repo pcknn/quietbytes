@@ -21,7 +21,11 @@ class Test extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //Top pill (Template Page)
-              CustomHeaders(title: 'Test Page', showBack: true, showSettings: true,),
+              CustomHeaders(
+                title: 'Test Page',
+                showBack: true,
+                showSettings: true,
+              ),
 
               const SizedBox(
                 height: AppSpacing.pillsSpacing,
@@ -63,13 +67,22 @@ class Test extends StatelessWidget {
                           ),
 
                           const SizedBox(height: 20.0),
-                          CustomButton(text: 'Home (Shell)', routeName: '/home'),
+                          CustomButton(
+                            text: 'Home (Shell)',
+                            routeName: '/home',
+                          ),
 
                           const SizedBox(height: 20.0),
-                          CustomButton(text: 'Settings', routeName: '/settings'),
+                          CustomButton(
+                            text: 'Settings',
+                            routeName: '/settings',
+                          ),
 
                           const SizedBox(height: 20.0),
-                          CustomButton(text: 'Notifications Page', routeName: '/notifications'),
+                          CustomButton(
+                            text: 'Notifications Page',
+                            routeName: '/notifications',
+                          ),
                         ],
                       ),
                     ),
