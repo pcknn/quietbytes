@@ -42,22 +42,23 @@ class NavigationBarTest extends StatelessWidget {
                   onTap: () => onTap(0),
                 ),
                 navItem(
-                  Icons.message_outlined,
+                  Icons.messenger_outline,
                   pageIndex == 1,
                   onTap: () => onTap(1),
                 ),
                 GestureDetector(
                   onTap: () => onTap(4),
                   child: Container(
-                    width: 48,
-                    height: 48,
+                    width: 66,
+                    height: 66,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: AppColors.rose
+                      color: AppColors.rose,
                     ),
-                    child: const Icon(Icons.add,
-                    color: AppColors.cream,
-                    size: 28,
+                    child: const Icon(
+                      Icons.add_rounded,
+                      color: AppColors.cream,
+                      size: 68,
                     ),
                   ),
                 ),
@@ -82,11 +83,26 @@ class NavigationBarTest extends StatelessWidget {
 
 Widget navItem(IconData icon, bool selected, {Function()? onTap}) {
   return Expanded(
-    child: InkWell(
+    child: GestureDetector(
       onTap: onTap,
-      child: Icon(
-        icon,
-        color: selected ? Colors.white : Colors.white.withValues(alpha: 0.4),
+      child: Center(
+        child: AnimatedContainer(
+          duration: const Duration(microseconds: 200),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+          decoration: BoxDecoration(
+            color: selected
+                ? AppColors.lavender.withValues(alpha: 0.5)
+                : Colors.transparent,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Icon(
+            icon,
+            color: selected
+                ? Colors.white
+                : Colors.white.withValues(alpha: 0.4),
+            size: 40,
+          ),
+        ),
       ),
     ),
   );

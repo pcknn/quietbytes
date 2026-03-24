@@ -9,7 +9,9 @@ import '../componets/custom_headers.dart';
 //Rename and change Notifications to whatever you want and change it in the main.dart as well, just a template if needed
 //To go back to the test page, click "Template Page", you can change the name and it will still work
 class Notifications extends StatelessWidget {
-  const Notifications({super.key});
+  final VoidCallback? onBack;
+
+  const Notifications({super.key, this.onBack});
 
   void clearNotifications(BuildContext context) {}
 
@@ -27,7 +29,7 @@ class Notifications extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //Top pill (Template Page)
-              CustomHeaders(title: 'Notifications', showBack: true, showSettings: true,),
+              CustomHeaders(title: 'Notifications', showBack: true, showSettings: true, onBack: onBack,),
 
               const SizedBox(
                 height: AppSpacing.pillsSpacing,

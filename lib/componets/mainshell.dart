@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import '../theme/colors.dart';
-import '../theme/spacing.dart';
 import '../componets/navigation_bar.dart';
 import '../componets/navigation_model.dart';
 
 import '../features/blank.dart';
 import '../features/notifications.dart';
-import '../features/settings.dart';
+import '../features/chat.dart';
+import '../features/profile.dart';
 
 
 class MainShell extends StatefulWidget {
@@ -17,27 +17,43 @@ class MainShell extends StatefulWidget {
 
 class _MainShellState extends State<MainShell> {
   int _pageIndex = 0;
+  final List<int> _history = [];
+
+  void _navigateTo(int index) {
+    if(_pageIndex == index) return;
+    setState(() {
+      _history.add(_pageIndex);
+      _pageIndex = index;
+    });
+  }
+
+  void _goBack() {
+    if(_history.isEmpty) return;
+    setState(() {
+      _pageIndex = _history.removeLast();
+    });
+  }
 
   // The pages in order matching your nav bar icons:
   // 0=Home, 1=Chat, 2=Notifications, 3=Settings
-  final List<Widget> _pages = [
+  List<Widget> _buildPages() => [
     const Blank(), //"home"
-    const Placeholder(), //Chat
-    const Notifications(),
-    const Settings(), //swap out with Account
+    Chat(onBack: _goBack), //Chat
+    Notifications(onBack: _goBack),
+    Profile(onBack: _goBack), //swap out with Account
     const Placeholder(), //Plus
   ];
 
   @override
   Widget build(BuildContext context) {
+    final pages = _buildPages();
+
     return Scaffold(
       backgroundColor: AppColors.lavender,
-      body: _pages[_pageIndex],
+      body: pages[_pageIndex],
       bottomNavigationBar: NavigationBarTest(
         pageIndex: _pageIndex,
-        onTap: (index) {
-          setState(() => _pageIndex = index);
-        },
+        onTap: (index) => _navigateTo(index,)
       ),
     );
   }

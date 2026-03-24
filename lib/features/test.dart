@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../theme/spacing.dart';
 import '../componets/custom_button.dart';
+import '../componets/custom_headers.dart';
 
 class Test extends StatelessWidget {
   const Test({super.key});
@@ -20,28 +21,7 @@ class Test extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //Top pill (Template Page)
-              Container(
-                width: double.infinity,
-                height: AppSpacing.topPillHeight,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: AppSpacing.topPillTextPadding,
-                ),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: AppColors.purple,
-                  borderRadius: BorderRadius.circular(
-                    AppSpacing.pillBorderRadius,
-                  ),
-                ),
-                child: const Text(
-                  'Testing Page',
-                  style: TextStyle(
-                    color: AppColors.cream,
-                    fontFamily: 'Jersey20',
-                    fontSize: 30,
-                  ),
-                ),
-              ),
+              CustomHeaders(title: 'Test Page', showBack: true, showSettings: true,),
 
               const SizedBox(
                 height: AppSpacing.pillsSpacing,

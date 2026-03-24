@@ -8,8 +8,9 @@ import '../componets/navigation_model.dart';
 
 //Rename and change Blank to whatever you want and change it in the main.dart as well, just a template if needed
 //To go back to the test page, click "Template Page", you can change the name and it will still work
-class Blank extends StatelessWidget {
-  const Blank({super.key});
+class Profile extends StatelessWidget {
+  final VoidCallback? onBack;
+  const Profile({super.key, this.onBack});
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +26,7 @@ class Blank extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //Top pill (Template Page)
-              CustomHeaders(
-                title: '"Home" Page',
-                showSettings: true,
-              ),
+              CustomHeaders(title: 'Your Profile ', showBack: true, showSettings: true, onBack: onBack,),
 
               const SizedBox(
                 height: AppSpacing.pillsSpacing,
@@ -55,11 +53,7 @@ class Blank extends StatelessWidget {
                       ), //How far the text is from the top of the purple pill
                       child: Column(
                         children: [
-
-
                           // ------ START HERE (I think)--------
-
-                          
                         ],
                       ),
                     ),

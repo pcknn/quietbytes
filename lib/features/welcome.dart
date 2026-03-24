@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../theme/spacing.dart';
 import '../componets/custom_button.dart';
+import '../componets/custom_headers.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
@@ -20,28 +21,7 @@ class Welcome extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //Top pill (Welcome to QuietBytes!)
-              Container(
-                width: double.infinity,
-                height: AppSpacing.topPillHeight,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: AppSpacing.topPillTextPadding,
-                ),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: AppColors.purple,
-                  borderRadius: BorderRadius.circular(
-                    AppSpacing.pillBorderRadius,
-                  ),
-                ),
-                child: const Text(
-                  'Welcome to QuietBytes!',
-                  style: TextStyle(
-                    color: AppColors.cream,
-                    fontFamily: 'Jersey20',
-                    fontSize: 30,
-                  ),
-                ),
-              ),
+              CustomHeaders(title: 'Welcome to QuietBytes!'),
 
               const SizedBox(
                 height: AppSpacing.pillsSpacing,

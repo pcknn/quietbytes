@@ -6,12 +6,14 @@ class CustomHeaders extends StatelessWidget {
   final String title;
   final bool showBack;
   final bool showSettings;
+  final VoidCallback? onBack;
 
   const CustomHeaders({
     super.key,
     required this.title,
     this.showBack = false,
     this.showSettings = false,
+    this.onBack,
   });
 
   @override
@@ -44,7 +46,7 @@ class CustomHeaders extends StatelessWidget {
               top: 0,
               bottom: 0,
               child: GestureDetector(
-                onTap: () => Navigator.pop(context),
+                onTap: onBack ?? () => Navigator.pop(context),
                 child: const Icon(
                   Icons.arrow_back_ios_rounded,
                   color: AppColors.cream,
@@ -58,7 +60,11 @@ class CustomHeaders extends StatelessWidget {
               top: 0,
               bottom: 0,
               child: GestureDetector(
-                onTap: () => Navigator.pushNamed(context, '/settings'),
+                onTap: () {
+                  if (ModalRoute.of(context)?.settings.name != '/settings') {
+                    Navigator.pushNamed(context, '/settings');
+                  }
+                },
                 child: const Icon(
                   Icons.settings_outlined,
                   color: AppColors.cream,
