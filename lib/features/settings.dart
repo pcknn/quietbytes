@@ -77,7 +77,7 @@ class Settings extends StatelessWidget {
                                         ),
                                         child: ClipOval(
                                           child: Image.asset(
-                                            'assets/images/cat.png',
+                                            'assets/images/winnie.png',
                                             fit: BoxFit.cover,
                                           ),
                                         ),
@@ -167,21 +167,30 @@ class Settings extends StatelessWidget {
                                   title: "Change Your Username",
                                   subtitle: "subtitle",
                                   icon: Icons.home,
-                                  onTap: () {},
+                                  onTap: () => Navigator.pushNamed(
+                                    context,
+                                    '/settings/change-username',
+                                  ),
                                 ),
 
                                 SettingsTile(
                                   title: "Change Your Email",
                                   subtitle: "subtitle",
                                   icon: Icons.email,
-                                  onTap: () {},
+                                  onTap: () => Navigator.pushNamed(
+                                    context,
+                                    '/settings/change-email',
+                                  ),
                                 ),
 
                                 SettingsTile(
                                   title: "Change Your Password",
                                   subtitle: "subtitle",
                                   icon: Icons.password,
-                                  onTap: () {},
+                                  onTap: () => Navigator.pushNamed(
+                                    context,
+                                    '/settings/change-password',
+                                  ),
                                 ),
 
                                 // ----- END OF ACCOUNT SETTINGS ------

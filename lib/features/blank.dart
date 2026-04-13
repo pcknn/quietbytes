@@ -50,6 +50,8 @@ class Blank extends StatelessWidget {
                       child: Column(
                         children: [
                           // ------ START HERE (I think)--------
+                          Image.asset('assets/images/winnie2.PNG',
+                          fit: BoxFit.fitHeight),
                         ],
                       ),
                     ),

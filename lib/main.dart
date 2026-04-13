@@ -5,6 +5,9 @@ import 'features/signup.dart';
 import 'features/welcome.dart';
 import 'features/test.dart';
 import '../features/settings.dart';
+import '../features/settings_change_username.dart';
+import '../features/settings_change_email.dart';
+import '../features/settings_change_password.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,6 +28,9 @@ class MyApp extends StatelessWidget {
         '/signup': (context) => Signup(),
         '/home' : (context) => const MainShell(),
         '/settings' : (context) => Settings(),
+        '/settings/change-username' : (context) => SettingsChangeUsername(),
+        '/settings/change-email' : (context) => SettingsChangeEmail(),
+        '/settings/change-password' : (context) => SettingsChangePassword(),
       },
     );
   }

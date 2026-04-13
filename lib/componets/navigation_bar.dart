@@ -92,7 +92,7 @@ Widget navItem(IconData icon, bool selected, {Function()? onTap}) {
           padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
           decoration: BoxDecoration(
             color: selected
-                ? AppColors.lavender.withValues(alpha: 0.5)
+                ? AppColors.lavender.withValues(alpha: 0.4)
                 : Colors.transparent,
             borderRadius: BorderRadius.circular(20),
           ),
