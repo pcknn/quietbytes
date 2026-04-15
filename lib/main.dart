@@ -34,17 +34,26 @@ class _MapScreenState extends State<MapScreen> {
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
 
+  final TextEditingController _searchController = TextEditingController();
+
   bool showEventCard = false;
   int _markerCounter = 0;
 
   String selectedEventTitle = "New Event";
 
   final Set<Marker> _markers = {};
+  final Map<String, Marker> _eventMarkersByName = {};
 
   static const CameraPosition _initialPosition = CameraPosition(
     target: LatLng(37.4279, -122.0857),
     zoom: 14,
   );
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
 
   Widget activityButton(String iconPath) {
     return Container(
@@ -83,9 +92,78 @@ class _MapScreenState extends State<MapScreen> {
 
     setState(() {
       _markers.add(marker);
+      _eventMarkersByName[eventName.toLowerCase()] = marker;
       selectedEventTitle = eventName;
       showEventCard = true;
     });
+  }
+
+  Future<void> _searchEventLocation() async {
+    final query = _searchController.text.trim().toLowerCase();
+
+    if (query.isEmpty) return;
+
+    final marker = _eventMarkersByName[query];
+
+    if (marker == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Event not found"),
+        ),
+      );
+      return;
+    }
+
+    final GoogleMapController controller = await _controller.future;
+
+    await controller.animateCamera(
+      CameraUpdate.newCameraPosition(
+        CameraPosition(
+          target: marker.position,
+          zoom: 16,
+        ),
+      ),
+    );
+
+    setState(() {
+      selectedEventTitle = marker.infoWindow.title ?? "Event";
+      showEventCard = true;
+    });
+  }
+
+  Widget buildSearchBar() {
+    return Positioned(
+      top: 95,
+      left: 20,
+      right: 20,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(18),
+        ),
+        child: Row(
+          children: [
+            const Icon(Icons.search, color: Colors.black54),
+            const SizedBox(width: 8),
+            Expanded(
+              child: TextField(
+                controller: _searchController,
+                onSubmitted: (_) => _searchEventLocation(),
+                decoration: const InputDecoration(
+                  hintText: "Search event location...",
+                  border: InputBorder.none,
+                ),
+              ),
+            ),
+            IconButton(
+              onPressed: _searchEventLocation,
+              icon: const Icon(Icons.arrow_forward),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   Widget buildBottomOverlay() {
@@ -185,7 +263,7 @@ class _MapScreenState extends State<MapScreen> {
           child: Stack(
             children: [
               Positioned(
-                top: 200,
+                top: 250,
                 left: 0,
                 right: 0,
                 bottom: 180,
@@ -223,8 +301,9 @@ class _MapScreenState extends State<MapScreen> {
                   ),
                 ),
               ),
+              buildSearchBar(),
               Positioned(
-                top: 95,
+                top: 155,
                 left: 20,
                 right: 20,
                 child: Row(
