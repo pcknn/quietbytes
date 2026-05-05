@@ -1,14 +1,13 @@
-# QuietBytes - Food Connection App
+# QuietBytes - Hobby Connection App
 
 QuietBytes connects people with food recommendations using GPS location services. 
 Explore new food experiences along with a new friend.
 
 ## Features
-- 📍 **Location-based restaurant discovery** using GPS API
-- 🍕 **Personalized food recommendations**
-- 👥 **Social features** to connect with other food enthusiasts
-- ⭐ **Ratings & reviews** for restaurants
-- 🗺️ **Interactive map** view of nearby food spots
+- 📍 **Location-based restaurant and event discovery** using GPS API
+- 🍕 **Personalized food and event recommendations through notifications**
+- 👥 **Social features** to connect with other hobby enthusiasts
+- 🗺️ **Interactive map** view of nearby food and event spots
 
 ## Quick Start
 
