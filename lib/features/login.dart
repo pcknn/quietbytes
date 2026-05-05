@@ -97,15 +97,15 @@ class _LoginState extends State<Login> {
                       child: SingleChildScrollView(
                         child: Column(
                           children: [
-                            const Icon(
-                              Icons.add_photo_alternate_outlined,
-                              size: 80,
-                              color: AppColors.gold,
+                            const Image(
+                              image: AssetImage('assets/images/burgerByte.png'),
+                              width: 320,
+                              fit: BoxFit.contain,
                             ),
 
                             // Username textfield
                             const SizedBox(
-                              height: 140,
+                              height: 100,
                             ), // Where the textfields are placed based of logo, could be adjusted later
                             CustomTextfield(
                               controller: emailController,
