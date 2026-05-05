@@ -4,6 +4,7 @@ import '../theme/spacing.dart';
 import '../componets/custom_button.dart';
 import '../componets/notification_tile.dart';
 import '../componets/custom_headers.dart';
+import '../features/event_detail.dart';
 
 //Rename and change Notifications to whatever you want and change it in the main.dart as well, just a template if needed
 //To go back to the test page, click "Template Page", you can change the name and it will still work
@@ -12,7 +13,20 @@ class Notifications extends StatelessWidget {
 
   const Notifications({super.key, this.onBack});
 
+  static const String hikingEventId = 'uCXi5bh1iXo0rJ0CJEZy';
+  static const String cafeEventId = 'wdmpTVSbWkyLzohcjIH3';
+  static const String cookingEventId = 'uuqScq3XYIYhjuOvR0do';
+
   void clearNotifications(BuildContext context) {}
+
+  void navigateToEvent(BuildContext context, String eventId) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => EventDetail(eventId: eventId),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,97 +81,22 @@ class Notifications extends StatelessWidget {
                             child: ListView(
                               children: [
                                 // ------ START HERE To Add NOTIFICATIONS --------
+                                NotificationTile(
+                                  text: 'Hiking Trip is starting soon!',
+                                  onTap: () => navigateToEvent(context, hikingEventId),
+                                ),
 
-                                // ---------- TESTING ----------
                                 NotificationTile(
-                                  text: 'New message from Alice',
-                                  onTap: () {
-                                    // Handle tap on this notification
-                                  },
+                                  text: 'You might like this cafe event nearby!',
+                                  onTap: () =>
+                                      navigateToEvent(context, cafeEventId),
                                 ),
+
                                 NotificationTile(
-                                  text: 'Your order has been shipped',
-                                  onTap: () {
-                                    // Handle tap on this notification
-                                  },
+                                  text: 'Cooking class is this weekend!',
+                                  onTap: () =>
+                                      navigateToEvent(context, cookingEventId),
                                 ),
-                                NotificationTile(
-                                  text: 'Reminder: Meeting at 3 PM',
-                                  onTap: () {
-                                    // Handle tap on this notification
-                                  },
-                                ),
-                                NotificationTile(
-                                  text: 'New comment on your post',
-                                  onTap: () {
-                                    // Handle tap on this notification
-                                  },
-                                ),
-                                NotificationTile(
-                                  text:
-                                      'Your password was changed successfully',
-                                  onTap: () {
-                                    // Handle tap on this notification
-                                  },
-                                ),
-                                NotificationTile(
-                                  text: 'New friend request from Bob',
-                                  onTap: () {
-                                    // Handle tap on this notification
-                                  },
-                                ),
-                                NotificationTile(
-                                  text:
-                                      'Your subscription will expire in 3 days',
-                                  onTap: () {
-                                    // Handle tap on this notification
-                                  },
-                                ),
-                                NotificationTile(
-                                  text: 'New message from Alice',
-                                  onTap: () {
-                                    // Handle tap on this notification
-                                  },
-                                ),
-                                NotificationTile(
-                                  text: 'Your order has been shipped',
-                                  onTap: () {
-                                    // Handle tap on this notification
-                                  },
-                                ),
-                                NotificationTile(
-                                  text: 'Reminder: Meeting at 3 PM',
-                                  onTap: () {
-                                    // Handle tap on this notification
-                                  },
-                                ),
-                                NotificationTile(
-                                  text: 'New comment on your post',
-                                  onTap: () {
-                                    // Handle tap on this notification
-                                  },
-                                ),
-                                NotificationTile(
-                                  text:
-                                      'Your password was changed successfully',
-                                  onTap: () {
-                                    // Handle tap on this notification
-                                  },
-                                ),
-                                NotificationTile(
-                                  text: 'New friend request from Bob',
-                                  onTap: () {
-                                    // Handle tap on this notification
-                                  },
-                                ),
-                                NotificationTile(
-                                  text:
-                                      'Your subscription will expire in 3 days',
-                                  onTap: () {
-                                    // Handle tap on this notification
-                                  },
-                                ),
-                                //----- END OF TESTING --------
 
                                 // ------ END HERE To Add NOTIFICATIONS --------
                               ],

@@ -23,7 +23,7 @@ class Test extends StatelessWidget {
               //Top pill (Template Page)
               CustomHeaders(
                 title: 'Test Page',
-                showBack: true,
+                showBack: false,
                 showSettings: true,
               ),
 

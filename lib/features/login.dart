@@ -5,15 +5,50 @@ import '../componets/custom_textfield.dart';
 import '../componets/custom_button.dart';
 import '../componets/custom_headers.dart';
 
-class Login extends StatelessWidget {
-  Login({super.key});
+import '../app/auth_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-  final usernameController = TextEditingController();
+class Login extends StatefulWidget {
+  const Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  void signUserIn(
-    BuildContext context,
-  ) {} // Temporary does nothing until AUTH is implemented
+  String errorMessage = '';
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  void signUserIn() async {
+  if (emailController.text.isEmpty || passwordController.text.isEmpty) {
+      setState(() {
+        errorMessage = 'Please fill in all fields';
+      });
+      return;
+    }
+  try {
+    await authService.value.signIn(
+      email: emailController.text, 
+      password: passwordController.text
+      );
+      if (mounted) {
+        Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false );
+      }
+    } on FirebaseAuthException catch (e) {
+      setState(() {
+        errorMessage = e.message ?? 'There is an error';
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -73,9 +108,8 @@ class Login extends StatelessWidget {
                               height: 140,
                             ), // Where the textfields are placed based of logo, could be adjusted later
                             CustomTextfield(
-                              controller: usernameController,
-                              hintText: 'Username',
-
+                              controller: emailController,
+                              hintText: 'Email',
                               obscureText: false,
                             ),
 
@@ -90,10 +124,19 @@ class Login extends StatelessWidget {
                               showToggle: true,
                             ),
 
-                            // Forgot password?
                             const SizedBox(
                               height: 10,
-                            ), // Distance between the password textfield and the "Forgot password?" text, could be adjusted later
+                            ), // Distance between the "Forgot password?" text and the error message, could be adjusted later
+                            Text(
+                              errorMessage,
+                              style: TextStyle(
+                                color: AppColors.gold,
+                                fontFamily: 'Jersey20',
+                                fontSize: 16,
+                              ),
+                            ),
+
+                            // Forgot password?
                             Padding(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 30.0,
@@ -103,7 +146,7 @@ class Login extends StatelessWidget {
                                 children: [
                                   TextButton(
                                     onPressed:
-                                        () {}, // Temporary does nothing, will be changed later to actually take the user to the forgot password page
+                                        () => Navigator.pushNamed(context, '/forgot-password'), // Temporary does nothing, will be changed later to actually take the user to the forgot password page
                                     style: ButtonStyle(
                                       padding: WidgetStateProperty.all(
                                         EdgeInsets.zero,
@@ -151,13 +194,11 @@ class Login extends StatelessWidget {
 
                             // Login button
                             const SizedBox(
-                              height: 50,
+                              height: 40,
                             ), // Distance between the "Forgot password?" text and the login button, could be adjusted later
                             CustomButton(
                               text: 'Login',
-                              onTap: () => signUserIn(
-                                context,
-                              ), // Temporary does nothing until AUTH is implemented
+                              onTap: () => signUserIn(), // Temporary does nothing until AUTH is implemented
                             ),
                             // Not a member? Register now "Text Button"
                             const SizedBox(

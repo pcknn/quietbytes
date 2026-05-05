@@ -5,17 +5,68 @@ import '../componets/custom_textfield.dart';
 import '../componets/custom_button.dart';
 import '../componets/custom_headers.dart';
 
-class Signup extends StatelessWidget {
-  Signup({super.key});
+import '../app/auth_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
+class Signup extends StatefulWidget {
+  const Signup({super.key});
+
+  @override
+  State<Signup> createState() => _SignupState();
+}
+
+class _SignupState extends State<Signup> {
   final usernameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
-  void signUserIn(
-    BuildContext context,
-  ) {} // Temporary empty function for onTap, will be implemented later for Sign Up functionality
+  String errorMessage = '';
+
+  @override
+  void dispose() {
+    usernameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    super.dispose();
+  }
+
+  void signUserIn() async {
+    if (passwordController.text != confirmPasswordController.text) {
+      setState(() {
+        errorMessage = 'Passwords do not match';
+      });
+      return;
+    }
+
+    if (usernameController.text.isEmpty) {
+      setState(() {
+        errorMessage = 'Username cannot be empty';
+      });
+      return;
+    }
+    try {
+      await authService.value.createAccount(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+      await authService.value.updateUsername(
+        newUsername: usernameController.text,
+        );
+      await authService.value.createUserProfile(
+        username: usernameController.text,
+        email: emailController.text,
+      );
+      if (mounted) {
+        Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false );
+      }
+    } on FirebaseAuthException catch (e) {
+      setState(() {
+        errorMessage = e.message ?? 'There is an error';
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -112,15 +163,24 @@ class Signup extends StatelessWidget {
                               showToggle: true,
                             ),
 
+                            //ERROR MESSAGE
+                            const SizedBox(height: 10), // Distance between the confirm password textfield and the error message, could be adjusted later
+                            Text(
+                              errorMessage,
+                              style: TextStyle(
+                                color: AppColors.gold,
+                                fontFamily: 'Jersey20',
+                                fontSize: 14,
+                              ),
+                            ),
+
                             // Login button
                             const SizedBox(
-                              height: 50,
+                              height: 40,
                             ), // Distance between the "Forgot password?" text and the login button, could be adjusted later
                             CustomButton(
                               text: 'Sign Up',
-                              routeName:
-                                  '/test', //Temporary route to Test Page, change to onTap later when signUserIn is implemented
-                              //onTap: () => signUserIn(),
+                              onTap: () => signUserIn(),
                             ),
 
                             // Not a member? Register now "Text Button"

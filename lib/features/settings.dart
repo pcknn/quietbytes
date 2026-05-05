@@ -1,16 +1,30 @@
+import '../app/auth_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../theme/spacing.dart';
 import '../componets/custom_headers.dart';
 import '../componets/settings_tile.dart';
 import '../componets/settings_headers.dart';
+import '../componets/custom_button.dart';
 
 //Rename and change Settings to whatever you want and change it in the main.dart as well, just a template if needed
 //To go back to the test page, click "Template Page", you can change the name and it will still work
 class Settings extends StatelessWidget {
   const Settings({super.key});
 
-  //void clearNotifications(BuildContext context) {}
+  void signUserOut(BuildContext context) async {
+    try {
+      await authService.value.signOut();
+      if (context.mounted) {
+        Navigator.pushNamedAndRemoveUntil(context, '/welcome', (route) => false);
+      }
+    } on FirebaseAuthException catch (e) {
+      print(e.message);
+
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -203,6 +217,7 @@ class Settings extends StatelessWidget {
                                 const SizedBox(height: 10),
 
                                 // ---- START OF X SETTINGS ------
+                                /*
                                 SettingsHeaders(
                                   title: "XYZ Settings",
                                   icon: Icons.person,
@@ -222,8 +237,14 @@ class Settings extends StatelessWidget {
                                   onTap: () {},
                                 ),
                                 // ---- END OF X SETTINGS -----
+                                */
 
                                 // ------ END HERE To Add SETTINGS --------
+
+                                CustomButton(
+                                  text: 'Sign Out',
+                                  onTap: () => signUserOut(context),
+                                ),
                               ],
                             ),
                           ),

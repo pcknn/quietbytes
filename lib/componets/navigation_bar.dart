@@ -41,7 +41,7 @@ class NavigationBarTest extends StatelessWidget {
                   onTap: () => onTap(0),
                 ),
                 navItem(
-                  Icons.messenger_outline,
+                  Icons.event_outlined,
                   pageIndex == 1,
                   onTap: () => onTap(1),
                 ),

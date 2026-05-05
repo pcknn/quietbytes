@@ -4,7 +4,7 @@ import '../componets/navigation_bar.dart';
 
 import '../features/blank.dart';
 import '../features/notifications.dart';
-import '../features/chat.dart';
+import '../features/events.dart';
 import '../features/profile.dart';
 
 class MainShell extends StatefulWidget {
@@ -32,11 +32,11 @@ class _MainShellState extends State<MainShell> {
     });
   }
 
-  // The pages in order matching your nav bar icons:
+  // The pages in order matching the nav bar icons:
   // 0=Home, 1=Chat, 2=Notifications, 3=Settings
   List<Widget> _buildPages() => [
     const Blank(), //"home"
-    Chat(onBack: _goBack), //Chat
+    Events(onBack: _goBack), //Events
     Notifications(onBack: _goBack),
     Profile(onBack: _goBack), //swap out with Account
     const Placeholder(), //Plus

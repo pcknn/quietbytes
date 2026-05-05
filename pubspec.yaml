@@ -28,6 +28,9 @@ dependencies:
   # UI Components
   flutter_svg: ^2.0.0
   url_launcher: ^6.0.0
+  firebase_core: ^4.7.0
+  firebase_auth: ^6.4.0
+  cloud_firestore: ^6.3.0
 
 dev_dependencies:
   flutter_test:

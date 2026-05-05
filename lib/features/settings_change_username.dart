@@ -5,16 +5,76 @@ import '../componets/custom_headers.dart';
 import '../componets/custom_button.dart';
 import '../componets/custom_textfield.dart';
 
+import '../app/auth_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 //Rename and change Blank to whatever you want and change it in the main.dart as well, just a template if needed
 //To go back to the test page, click "Template Page", you can change the name and it will still work
-class SettingsChangeUsername extends StatelessWidget {
-  SettingsChangeUsername({super.key});
+class SettingsChangeUsername extends StatefulWidget {
+  const SettingsChangeUsername({super.key});
+  
+  @override
+  State<SettingsChangeUsername> createState() => _SettingsChangeUsernameState();
+}
 
+class _SettingsChangeUsernameState extends State<SettingsChangeUsername> {
   final oldUsernameController = TextEditingController();
   final oldUsernameController2 = TextEditingController();
   final newUsernameController = TextEditingController();
 
+  String errorMessage = '';
+
   @override
+  void dispose() {
+    oldUsernameController.dispose();
+    oldUsernameController2.dispose();
+    newUsernameController.dispose();
+    super.dispose();
+  }
+
+  void changeUsername () async {
+    if (newUsernameController.text.isEmpty || oldUsernameController.text.isEmpty || oldUsernameController2.text.isEmpty) {
+      setState(() {
+        errorMessage = 'Please fill in all fields';
+      });
+      return;
+    }
+    if (oldUsernameController.text != oldUsernameController2.text) {
+      setState(() {
+        errorMessage = 'Old usernames do not match';
+      });
+      return;
+    }
+    try {
+      await authService.value.updateUsername(
+        newUsername: newUsernameController.text,
+      );
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: AppColors.purple,
+            content: Text('Username changed successfully!',
+              style: TextStyle(color: AppColors.cream, 
+              fontFamily: 'Jersey20', 
+              fontSize: 16
+              ),
+            ),
+            showCloseIcon: true,
+          ),
+        );
+        setState(() {
+          errorMessage = '';
+        });
+        Navigator.pop(context);
+      }
+    } on FirebaseAuthException catch (e) {
+      setState(() {
+        errorMessage = e.message ?? 'An error occurred';
+      });
+    }
+  }
+
+@override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.lavender,
@@ -75,11 +135,19 @@ class SettingsChangeUsername extends StatelessWidget {
                             obscureText: false,
                             showToggle: false,
                           ),
+                          const SizedBox(height: 10),
+                          Text(
+                            errorMessage,
+                            style: TextStyle(
+                              color: AppColors.gold,
+                              fontFamily: 'Jersey20',
+                              fontSize: 14,
+                            ),
+                          ),
                           const SizedBox(height: 20),
                           CustomButton(
                             text: 'Confirm',
-                            onTap: () =>
-                                (), // Temporary does nothing until AUTH is implemented
+                            onTap: () => changeUsername(), // Temporary does nothing until AUTH is implemented
                           ),
                         ],
                       ),
