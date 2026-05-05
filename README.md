@@ -1,7 +1,7 @@
 # QuietBytes - Hobby Connection App
 
 QuietBytes connects people with food recommendations using GPS location services. 
-Explore new food experiences along with a new friend.
+Explore new hobby experiences along with a new friend.
 
 ## Features
 - 📍 **Location-based restaurant and event discovery** using GPS API
