@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../theme/colors.dart';
-import '../componets/navigation_bar.dart';
+import 'navigation_bar.dart';
 
 import '../features/blank.dart';
 import '../features/notifications.dart';
@@ -33,7 +33,7 @@ class _MainShellState extends State<MainShell> {
   }
 
   // The pages in order matching the nav bar icons:
-  // 0=Home, 1=Chat, 2=Notifications, 3=Settings
+  // 0=Home, 1=Events, 2=Notifications, 3=Settings
   List<Widget> _buildPages() => [
     const Blank(), //"home"
     Events(onBack: _goBack), //Events

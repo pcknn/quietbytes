@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../theme/spacing.dart';
-import '../componets/custom_headers.dart';
-import '../componets/custom_button.dart';
-import '../componets/custom_textfield.dart';
+import '../components/custom_headers.dart';
+import '../components/custom_button.dart';
+import '../components/custom_textfield.dart';
 
 import '../app/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -12,7 +12,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 //To go back to the test page, click "Template Page", you can change the name and it will still work
 class SettingsChangeUsername extends StatefulWidget {
   const SettingsChangeUsername({super.key});
-  
+
   @override
   State<SettingsChangeUsername> createState() => _SettingsChangeUsernameState();
 }
@@ -32,8 +32,10 @@ class _SettingsChangeUsernameState extends State<SettingsChangeUsername> {
     super.dispose();
   }
 
-  void changeUsername () async {
-    if (newUsernameController.text.isEmpty || oldUsernameController.text.isEmpty || oldUsernameController2.text.isEmpty) {
+  void changeUsername() async {
+    if (newUsernameController.text.isEmpty ||
+        oldUsernameController.text.isEmpty ||
+        oldUsernameController2.text.isEmpty) {
       setState(() {
         errorMessage = 'Please fill in all fields';
       });
@@ -53,10 +55,12 @@ class _SettingsChangeUsernameState extends State<SettingsChangeUsername> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             backgroundColor: AppColors.purple,
-            content: Text('Username changed successfully!',
-              style: TextStyle(color: AppColors.cream, 
-              fontFamily: 'Jersey20', 
-              fontSize: 16
+            content: Text(
+              'Username changed successfully!',
+              style: TextStyle(
+                color: AppColors.cream,
+                fontFamily: 'Jersey20',
+                fontSize: 16,
               ),
             ),
             showCloseIcon: true,
@@ -74,7 +78,7 @@ class _SettingsChangeUsernameState extends State<SettingsChangeUsername> {
     }
   }
 
-@override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.lavender,
@@ -147,7 +151,8 @@ class _SettingsChangeUsernameState extends State<SettingsChangeUsername> {
                           const SizedBox(height: 20),
                           CustomButton(
                             text: 'Confirm',
-                            onTap: () => changeUsername(), // Temporary does nothing until AUTH is implemented
+                            onTap: () =>
+                                changeUsername(), // Temporary does nothing until AUTH is implemented
                           ),
                         ],
                       ),

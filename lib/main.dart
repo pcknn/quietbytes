@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
 import 'package:flutter/material.dart';
-import 'package:quietbytes/componets/mainshell.dart';
+import 'package:quietbytes/components/mainshell.dart';
 import 'features/login.dart';
 import 'features/signup.dart';
 import 'features/welcome.dart';
@@ -13,7 +13,6 @@ import '../features/settings_change_email.dart';
 import '../features/settings_change_password.dart';
 import '../app/auth_layout.dart';
 import 'features/forgot_password.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,7 +29,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/auth',
       routes: {
-        '/test': (context) => const Test(), // For testing purposes, can be removed later
+        '/test': (context) =>
+            const Test(), // For testing purposes, can be removed later
         '/auth': (context) => const AuthLayout(),
         '/welcome': (context) => Welcome(),
         '/login': (context) => Login(),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../theme/spacing.dart';
-import '../componets/custom_textfield.dart';
-import '../componets/custom_button.dart';
-import '../componets/custom_headers.dart';
+import '../components/custom_textfield.dart';
+import '../components/custom_button.dart';
+import '../components/custom_headers.dart';
 
 import '../app/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -53,13 +53,13 @@ class _SignupState extends State<Signup> {
       );
       await authService.value.updateUsername(
         newUsername: usernameController.text,
-        );
+      );
       await authService.value.createUserProfile(
         username: usernameController.text,
         email: emailController.text,
       );
       if (mounted) {
-        Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false );
+        Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
       }
     } on FirebaseAuthException catch (e) {
       setState(() {
@@ -164,7 +164,9 @@ class _SignupState extends State<Signup> {
                             ),
 
                             //ERROR MESSAGE
-                            const SizedBox(height: 10), // Distance between the confirm password textfield and the error message, could be adjusted later
+                            const SizedBox(
+                              height: 10,
+                            ), // Distance between the confirm password textfield and the error message, could be adjusted later
                             Text(
                               errorMessage,
                               style: TextStyle(

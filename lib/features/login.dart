@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../theme/spacing.dart';
-import '../componets/custom_textfield.dart';
-import '../componets/custom_button.dart';
-import '../componets/custom_headers.dart';
+import '../components/custom_textfield.dart';
+import '../components/custom_button.dart';
+import '../components/custom_headers.dart';
 
 import '../app/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -29,19 +29,19 @@ class _LoginState extends State<Login> {
   }
 
   void signUserIn() async {
-  if (emailController.text.isEmpty || passwordController.text.isEmpty) {
+    if (emailController.text.isEmpty || passwordController.text.isEmpty) {
       setState(() {
         errorMessage = 'Please fill in all fields';
       });
       return;
     }
-  try {
-    await authService.value.signIn(
-      email: emailController.text, 
-      password: passwordController.text
+    try {
+      await authService.value.signIn(
+        email: emailController.text,
+        password: passwordController.text,
       );
       if (mounted) {
-        Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false );
+        Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
       }
     } on FirebaseAuthException catch (e) {
       setState(() {
@@ -145,8 +145,10 @@ class _LoginState extends State<Login> {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   TextButton(
-                                    onPressed:
-                                        () => Navigator.pushNamed(context, '/forgot-password'), // Temporary does nothing, will be changed later to actually take the user to the forgot password page
+                                    onPressed: () => Navigator.pushNamed(
+                                      context,
+                                      '/forgot-password',
+                                    ), // Temporary does nothing, will be changed later to actually take the user to the forgot password page
                                     style: ButtonStyle(
                                       padding: WidgetStateProperty.all(
                                         EdgeInsets.zero,
@@ -198,7 +200,8 @@ class _LoginState extends State<Login> {
                             ), // Distance between the "Forgot password?" text and the login button, could be adjusted later
                             CustomButton(
                               text: 'Login',
-                              onTap: () => signUserIn(), // Temporary does nothing until AUTH is implemented
+                              onTap: () =>
+                                  signUserIn(), // Temporary does nothing until AUTH is implemented
                             ),
                             // Not a member? Register now "Text Button"
                             const SizedBox(

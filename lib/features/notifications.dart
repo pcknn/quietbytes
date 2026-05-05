@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../theme/spacing.dart';
-import '../componets/custom_button.dart';
-import '../componets/notification_tile.dart';
-import '../componets/custom_headers.dart';
+import '../components/custom_button.dart';
+import '../components/notification_tile.dart';
+import '../components/custom_headers.dart';
 import '../features/event_detail.dart';
 
 //Rename and change Notifications to whatever you want and change it in the main.dart as well, just a template if needed
@@ -22,9 +22,7 @@ class Notifications extends StatelessWidget {
   void navigateToEvent(BuildContext context, String eventId) {
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (context) => EventDetail(eventId: eventId),
-      ),
+      MaterialPageRoute(builder: (context) => EventDetail(eventId: eventId)),
     );
   }
 
@@ -83,11 +81,13 @@ class Notifications extends StatelessWidget {
                                 // ------ START HERE To Add NOTIFICATIONS --------
                                 NotificationTile(
                                   text: 'Hiking Trip is starting soon!',
-                                  onTap: () => navigateToEvent(context, hikingEventId),
+                                  onTap: () =>
+                                      navigateToEvent(context, hikingEventId),
                                 ),
 
                                 NotificationTile(
-                                  text: 'You might like this cafe event nearby!',
+                                  text:
+                                      'You might like this cafe event nearby!',
                                   onTap: () =>
                                       navigateToEvent(context, cafeEventId),
                                 ),

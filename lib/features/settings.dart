@@ -4,10 +4,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../theme/spacing.dart';
-import '../componets/custom_headers.dart';
-import '../componets/settings_tile.dart';
-import '../componets/settings_headers.dart';
-import '../componets/custom_button.dart';
+import '../components/custom_headers.dart';
+import '../components/settings_tile.dart';
+import '../components/settings_headers.dart';
+import '../components/custom_button.dart';
 
 //Rename and change Settings to whatever you want and change it in the main.dart as well, just a template if needed
 //To go back to the test page, click "Template Page", you can change the name and it will still work
@@ -18,11 +18,14 @@ class Settings extends StatelessWidget {
     try {
       await authService.value.signOut();
       if (context.mounted) {
-        Navigator.pushNamedAndRemoveUntil(context, '/welcome', (route) => false);
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          '/welcome',
+          (route) => false,
+        );
       }
     } on FirebaseAuthException catch (e) {
       print(e.message);
-
     }
   }
 
@@ -240,7 +243,6 @@ class Settings extends StatelessWidget {
                                 */
 
                                 // ------ END HERE To Add SETTINGS --------
-
                                 CustomButton(
                                   text: 'Sign Out',
                                   onTap: () => signUserOut(context),

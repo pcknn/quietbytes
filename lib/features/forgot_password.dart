@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../theme/spacing.dart';
-import '../componets/custom_headers.dart';
+import '../components/custom_headers.dart';
 
-import '../componets/custom_textfield.dart';
-import '../componets/custom_button.dart';
+import '../components/custom_textfield.dart';
+import '../components/custom_button.dart';
 
 import '../app/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -36,21 +36,22 @@ class _ForgotPasswordState extends State<ForgotPassword> {
       return;
     }
     try {
-      await authService.value.resetPassword(
-        email: emailController.text
-      );
+      await authService.value.resetPassword(email: emailController.text);
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          backgroundColor: AppColors.purple,
-          content: Text('Password reset link sent to your email',
-          style: TextStyle(
-            color: AppColors.cream,
-            fontFamily: 'Jersey20',
-            fontSize: 16,
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: AppColors.purple,
+            content: Text(
+              'Password reset link sent to your email',
+              style: TextStyle(
+                color: AppColors.cream,
+                fontFamily: 'Jersey20',
+                fontSize: 16,
+              ),
+            ),
+            showCloseIcon: true,
           ),
-        ),
-          showCloseIcon: true,
-        ));
+        );
         setState(() {
           errorMessage = '';
         });

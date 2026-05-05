@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../theme/spacing.dart';
-import '../componets/custom_button.dart';
-import '../componets/custom_headers.dart';
+import '../components/custom_button.dart';
+import '../components/custom_headers.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});

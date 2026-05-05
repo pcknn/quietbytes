@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../theme/spacing.dart';
-import '../componets/custom_headers.dart';
-import '../componets/custom_button.dart';
-import '../componets/custom_textfield.dart';
+import '../components/custom_headers.dart';
+import '../components/custom_button.dart';
+import '../components/custom_textfield.dart';
 
 import '../app/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -35,7 +35,10 @@ class _SettingsChangePasswordState extends State<SettingsChangePassword> {
   }
 
   void changePassword() async {
-    if (emailController.text.isEmpty || oldPasswordController.text.isEmpty || newPasswordController.text.isEmpty || newPasswordController2.text.isEmpty) {
+    if (emailController.text.isEmpty ||
+        oldPasswordController.text.isEmpty ||
+        newPasswordController.text.isEmpty ||
+        newPasswordController2.text.isEmpty) {
       setState(() {
         errorMessage = 'Please fill in all fields';
       });
@@ -57,14 +60,16 @@ class _SettingsChangePasswordState extends State<SettingsChangePassword> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             backgroundColor: AppColors.purple,
-            content: Text('Password changed successfully',
-            style: TextStyle(
-              color: AppColors.gold,
-              fontFamily: 'Jersey20',
-              fontSize: 16,
-            ),),
-            showCloseIcon: true,
+            content: Text(
+              'Password changed successfully',
+              style: TextStyle(
+                color: AppColors.gold,
+                fontFamily: 'Jersey20',
+                fontSize: 16,
+              ),
             ),
+            showCloseIcon: true,
+          ),
         );
         setState(() {
           errorMessage = '';
